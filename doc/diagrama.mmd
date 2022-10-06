@@ -1,0 +1,122 @@
+classDiagram
+    Estacionamiento *-- PlantadeEstacionamiento
+    PlantadeEstacionamiento *-- LugarEstacionamiento
+    LugarEstacionamiento o-- Vehiculo
+    PlantadeEstacionamiento *-- PaneldeEstacionamiento
+    
+    Sistema *-- Estacionamiento
+    Sistema *-- Usuario
+    Sistema *-- TicketEstacionamiento
+
+    Usuario <|-- CuentaAdmin
+    Usuario <|-- CuentaCliente
+    Usuario <|-- AsistenteEstacionamiento
+    
+    AsistenteEstacionamiento *-- PortalAsistenteEstacionamiento
+
+    CuentaCliente *-- TicketEstacionamiento
+
+    TicketEstacionamiento <|-- PanelEntrada
+    TicketEstacionamiento <|-- PanelSalida
+    TicketEstacionamiento *-- Vehiculo
+
+    PanelSalida *-- AsistenteEstacionamiento
+    PanelSalida *-- Pago
+    PanelSalida o-- PortaInformacionCliente
+    
+
+
+    PortaInformacionCliente --> Pago
+
+    PanelElectrico --> Pago
+
+    Pago <|-- Tarifa
+
+    class Sistema
+    Sistema: +Usuarios
+    Sistema: +Tickets
+    Sistema: Estacionamiento()
+    Sistema: Usuarios()
+    Sistema: Tickets()
+
+    class Estacionamiento
+    Estacionamiento: +Nombre
+    Estacionamiento: +Direccion
+    Estacionamiento: Estacionamiento()
+
+
+    class PlantadeEstacionamiento
+    PlantadeEstacionamiento: +Nro-Piso
+
+    class LugarEstacionamiento
+    LugarEstacionamiento: +Discapacitado
+    LugarEstacionamiento: +Compacto
+    LugarEstacionamiento: +Grande
+    LugarEstacionamiento: +Motocicleta
+    LugarEstacionamiento: +Electrico
+
+    class Vehiculo
+    Vehiculo: +Automovil
+    Vehiculo: +Camion
+    Vehiculo: +Electrico
+    Vehiculo: +Camioneta
+    Vehiculo: +Motocicleta
+
+    class Usuario
+    Usuario: +Usuarios
+    Usuario: Cuentas()
+
+    class CuentaAdmin
+    CuentaAdmin: +Administrador
+    
+    class CuentaCliente
+    CuentaCliente: +Cliente
+
+    class TicketEstacionamiento
+    TicketEstacionamiento: +TicketEntrada
+    TicketEstacionamiento: +TicketSalida
+    TicketEstacionamiento: TicketEstacionamiento()
+    TicketEstacionamiento: CuentaCliente()
+
+    class PanelEntrada
+    PanelEntrada: +TicketEntrada
+    PanelEntrada: TicketEstacionamiento()
+
+    class PanelSalida
+    PanelSalida: +TicketSalida
+    PanelSalida: +PagoTarifa
+
+    class Pago
+    Pago: +TarjetaCredito
+    Pago: +Efectivo
+
+    class Tarifa
+    Tarifa: +TarifaEstacionamiento-1hora
+    Tarifa: +TarifaEstacionamiento-2hora
+    Tarifa: +TarifaEstacionamiento-3hora
+    Tarifa: +TarifaEstacionamiento-HorasRestantes
+
+    class PaneldeEstacionamiento
+    PaneldeEstacionamiento: +DisponibilidadAparcamientoLibre
+
+    class PortalAsistenteEstacionamiento
+    PortalAsistenteEstacionamiento: +EscaneoTicket
+    PortalAsistenteEstacionamiento: +ProcesodePago
+    PortalAsistenteEstacionamiento: TicketEstacionamiento()
+    PortalAsistenteEstacionamiento: Pago()
+
+    class PortaInformacionCliente
+    PortaInformacionCliente: +PagoTarifa
+    PortaInformacionCliente: +ActualizacionTicket
+    PortaInformacionCliente: TicketEstacionamiento()
+    PortaInformacionCliente: Pago()
+
+    class PanelElectrico
+    PanelElectrico: +PagoCarga
+    PanelElectrico: +CargaElectrico
+
+    class AsistenteEstacionamiento
+    AsistenteEstacionamiento: +TarjetaCredito
+    AsistenteEstacionamiento: +Efectivo
+    AsistenteEstacionamiento: TicketEstacionamiento()
+    AsistenteEstacionamiento: Pago()
