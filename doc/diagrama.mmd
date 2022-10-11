@@ -21,17 +21,17 @@ classDiagram
     Usuario <|-- Cliente
     Usuario <|-- Asistente
     
-    Asistente <-- PortalAsistenteEstacionamiento
+    Asistente --> PortalAsistenteEstacionamiento
 
     Cliente *-- TicketEstacionamiento
 
-    TicketEstacionamiento <|-- TicketPanelEntrada
-    TicketEstacionamiento <|-- TicketPanelSalida
+    TicketEstacionamiento *-- TicketPanelEntrada
+    TicketEstacionamiento <-- TicketPanelSalida
     TicketEstacionamiento *-- Vehiculo
 
     TicketPanelSalida *-- Asistente
     TicketPanelSalida *-- Pago
-    TicketPanelSalida o-- PortalInformacionCliente    
+    TicketPanelSalida <|-- PortalInformacionCliente    
 
     PortalInformacionCliente <-- Pago
 
@@ -98,12 +98,12 @@ classDiagram
     
     class Cliente
     Cliente: +Cliente
+    Cliente: PagarTicket()
+    Cliente: PagarPanelElectrico()
 
     class TicketEstacionamiento
     TicketEstacionamiento: +TicketEntrada
     TicketEstacionamiento: +TicketSalida
-    TicketEstacionamiento: TicketEstacionamiento()
-    TicketEstacionamiento: Cliente()
 
     class TicketPanelEntrada
     TicketPanelEntrada: +TicketEntrada
@@ -113,6 +113,7 @@ classDiagram
     TicketPanelSalida: +TicketSalida
     TicketPanelSalida: +PagoTarifa
     TicketPanelSalida: PagarTarifadeEstacionamiento()
+    TicketPanelSalida: ActualizarTicket()
 
     class Pago
     Pago: +TarjetaCredito
@@ -130,12 +131,13 @@ classDiagram
     PaneldeEstacionamiento: +DisponibilidadAparcamientoLibre
 
     class PortalAsistenteEstacionamiento
-    PortalAsistenteEstacionamiento: +EscaneoTicket
-    PortalAsistenteEstacionamiento: +ProcesodePago
+    PortalAsistenteEstacionamiento: EscaneoTicket()
+    PortalAsistenteEstacionamiento: ProcesodePago()
 
     class PortalInformacionCliente
     PortalInformacionCliente: +PagoTarifa
     PortalInformacionCliente: +ActualizacionTicket
+    PortalInformacionCliente: PagarTarifadeEstacionamiento()
 
     class PanelElectrico
     PanelElectrico: +PagoCarga
