@@ -1,59 +1,86 @@
 classDiagram
     Estacionamiento *-- PlantadeEstacionamiento
-    PlantadeEstacionamiento *-- LugarEstacionamiento
-    LugarEstacionamiento o-- Vehiculo
+    PlantadeEstacionamiento *-- Slots
+    Slots o-- Vehiculo
     PlantadeEstacionamiento *-- PaneldeEstacionamiento
     
     Sistema *-- Estacionamiento
     Sistema *-- Usuario
     Sistema *-- TicketEstacionamiento
+    Sistema *-- PortalAsistenteEstacionamiento
+    Sistema *-- PortalInformacionCliente
+    Sistema *-- PanelElectrico
 
-    Usuario <|-- CuentaAdmin
-    Usuario <|-- CuentaCliente
-    Usuario <|-- AsistenteEstacionamiento
+    Slots <|-- Discapacitado
+    Slots <|-- Compacto
+    Slots <|-- Grande
+    Slots <|-- Motocicleta
+    Slots <|-- Electrico
     
-    AsistenteEstacionamiento *-- PortalAsistenteEstacionamiento
+    Usuario <|-- Administrador
+    Usuario <|-- Cliente
+    Usuario <|-- Asistente
+    
+    Asistente <-- PortalAsistenteEstacionamiento
 
-    CuentaCliente *-- TicketEstacionamiento
+    Cliente *-- TicketEstacionamiento
 
-    TicketEstacionamiento <|-- PanelEntrada
-    TicketEstacionamiento <|-- PanelSalida
+    TicketEstacionamiento <|-- TicketPanelEntrada
+    TicketEstacionamiento <|-- TicketPanelSalida
     TicketEstacionamiento *-- Vehiculo
 
-    PanelSalida *-- AsistenteEstacionamiento
-    PanelSalida *-- Pago
-    PanelSalida o-- PortaInformacionCliente
-    
+    TicketPanelSalida *-- Asistente
+    TicketPanelSalida *-- Pago
+    TicketPanelSalida o-- PortalInformacionCliente    
 
+    PortalInformacionCliente <-- Pago
 
-    PortaInformacionCliente --> Pago
-
-    PanelElectrico --> Pago
+    PanelElectrico <-- Pago
 
     Pago <|-- Tarifa
 
     class Sistema
     Sistema: +Usuarios
     Sistema: +Tickets
-    Sistema: Estacionamiento()
-    Sistema: Usuarios()
-    Sistema: Tickets()
+    Sistema: +Estacionamiento
+    Sistema: +PortalAsistenteEstacionamiento
+    Sistema: +PortalInformacionCliente
+    Sistema: +PanelElectrico
+    Sistema: CrearUsuario()
+    Sistema: EliminarUsuario()
+    Sistema: EmitirTicket()
 
     class Estacionamiento
     Estacionamiento: +Nombre
     Estacionamiento: +Direccion
+    Estacionamiento: +PlantasdeEstacionamiento
     Estacionamiento: Estacionamiento()
 
 
     class PlantadeEstacionamiento
     PlantadeEstacionamiento: +Nro-Piso
+    PlantadeEstacionamiento: +Slots
+    PlantadeEstacionamiento: +Estado
+    PlantadeEstacionamiento: +Ubicacion
+    PlantadeEstacionamiento: +Vehiculo
 
-    class LugarEstacionamiento
-    LugarEstacionamiento: +Discapacitado
-    LugarEstacionamiento: +Compacto
-    LugarEstacionamiento: +Grande
-    LugarEstacionamiento: +Motocicleta
-    LugarEstacionamiento: +Electrico
+    class Slots
+    Slots: +Discapacitado
+    Slots: +Compacto
+    Slots: +Compacto
+    Slots: +Grande
+    Slots: +Motocicleta
+    
+    class Discapacitado
+
+    class Compacto
+    
+    class Grande
+    
+    class Motocicleta
+    
+    class Electrico
+    Electrico: +Carga
 
     class Vehiculo
     Vehiculo: +Automovil
@@ -64,37 +91,40 @@ classDiagram
 
     class Usuario
     Usuario: +Usuarios
-    Usuario: Cuentas()
+    Usuario: CreaciondeCuentas()
 
-    class CuentaAdmin
-    CuentaAdmin: +Administrador
+    class Administrador
+    Administrador: +Administrador
     
-    class CuentaCliente
-    CuentaCliente: +Cliente
+    class Cliente
+    Cliente: +Cliente
 
     class TicketEstacionamiento
     TicketEstacionamiento: +TicketEntrada
     TicketEstacionamiento: +TicketSalida
     TicketEstacionamiento: TicketEstacionamiento()
-    TicketEstacionamiento: CuentaCliente()
+    TicketEstacionamiento: Cliente()
 
-    class PanelEntrada
-    PanelEntrada: +TicketEntrada
-    PanelEntrada: TicketEstacionamiento()
+    class TicketPanelEntrada
+    TicketPanelEntrada: +TicketEntrada
+    TicketPanelEntrada: EmitirTicketEntrada()
 
-    class PanelSalida
-    PanelSalida: +TicketSalida
-    PanelSalida: +PagoTarifa
+    class TicketPanelSalida
+    TicketPanelSalida: +TicketSalida
+    TicketPanelSalida: +PagoTarifa
+    TicketPanelSalida: PagarTarifadeEstacionamiento()
 
     class Pago
     Pago: +TarjetaCredito
     Pago: +Efectivo
+    Pago: +Monto
 
     class Tarifa
     Tarifa: +TarifaEstacionamiento-1hora
     Tarifa: +TarifaEstacionamiento-2hora
     Tarifa: +TarifaEstacionamiento-3hora
     Tarifa: +TarifaEstacionamiento-HorasRestantes
+    Tarifa: CalcularMontoHorasTarifa()
 
     class PaneldeEstacionamiento
     PaneldeEstacionamiento: +DisponibilidadAparcamientoLibre
@@ -102,21 +132,15 @@ classDiagram
     class PortalAsistenteEstacionamiento
     PortalAsistenteEstacionamiento: +EscaneoTicket
     PortalAsistenteEstacionamiento: +ProcesodePago
-    PortalAsistenteEstacionamiento: TicketEstacionamiento()
-    PortalAsistenteEstacionamiento: Pago()
 
-    class PortaInformacionCliente
-    PortaInformacionCliente: +PagoTarifa
-    PortaInformacionCliente: +ActualizacionTicket
-    PortaInformacionCliente: TicketEstacionamiento()
-    PortaInformacionCliente: Pago()
+    class PortalInformacionCliente
+    PortalInformacionCliente: +PagoTarifa
+    PortalInformacionCliente: +ActualizacionTicket
 
     class PanelElectrico
     PanelElectrico: +PagoCarga
     PanelElectrico: +CargaElectrico
 
-    class AsistenteEstacionamiento
-    AsistenteEstacionamiento: +TarjetaCredito
-    AsistenteEstacionamiento: +Efectivo
-    AsistenteEstacionamiento: TicketEstacionamiento()
-    AsistenteEstacionamiento: Pago()
+    class Asistente
+    Asistente: +TarjetaCredito
+    Asistente: +Efectivo
