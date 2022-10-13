@@ -1,25 +1,24 @@
 classDiagram
     Estacionamiento *-- PlantadeEstacionamiento
-    PlantadeEstacionamiento *-- Slots
-    Slots o-- Vehiculo
+    PlantadeEstacionamiento *-- Slot
+    Slot o-- Vehiculo
     PlantadeEstacionamiento *-- PaneldeEstacionamiento
     
     Sistema *-- Estacionamiento
-    Sistema *-- Usuario
     Sistema *-- TicketEstacionamiento
     Sistema *-- PortalAsistenteEstacionamiento
     Sistema *-- PortalInformacionCliente
     Sistema *-- PanelElectrico
 
-    Slots <|-- Discapacitado
-    Slots <|-- Compacto
-    Slots <|-- Grande
-    Slots <|-- Motocicleta
-    Slots <|-- Electrico
+    Slot <|-- Discapacitado
+    Slot <|-- Compacto
+    Slot <|-- Grande
+    Slot <|-- Motocicleta
+    Slot <|-- Electrico
     
-    Usuario <|-- Administrador
-    Usuario <|-- Cliente
-    Usuario <|-- Asistente
+    Sistema <|-- Administrador
+    Sistema <|-- Cliente
+    Sistema <|-- Asistente
     
     Asistente --> PortalAsistenteEstacionamiento
 
@@ -62,12 +61,12 @@ classDiagram
     PlantadeEstacionamiento: +Ubicacion
     PlantadeEstacionamiento: +Vehiculo
 
-    class Slots
-    Slots: +Discapacitado
-    Slots: +Compacto
-    Slots: +Compacto
-    Slots: +Grande
-    Slots: +Motocicleta
+    class Slot
+    Slot: +Discapacitado
+    Slot: +Compacto
+    Slot: +Grande
+    Slot: +Motocicleta
+    Slot: +Electrico
     
     class Discapacitado
 
@@ -87,15 +86,27 @@ classDiagram
     Vehiculo: +Camioneta
     Vehiculo: +Motocicleta
 
-    class Usuario
-    Usuario: +Usuarios
-    Usuario: CreaciondeCuentas()
-
     class Administrador
-    Administrador: +Administrador
+    Administrador: +Id
+    Administrador: +Nombre
+    Administrador: +Contraseña
+    Administrador: AgregarPisos()
+    Administrador: ModificarPisos()
+    Administrador: ModificarLugares()
+    Administrador: ModificarPanelesEntrada()
+    Administrador: ModificarPanelesSalida()
+    Administrador: AgregarAsistentes()
+    Administrador: EliminarAsistentes()
+
+    class Asistente
+    Asistente: +Id
+    Asistente: +Nombre
+    Asistente: +Contraseña
+    Asistente: +TarjetaCredito
+    Asistente: +Efectivo
     
     class Cliente
-    Cliente: +Cliente
+    Cliente: +Ticket
     Cliente: PagarTicket()
     Cliente: PagarPanelElectrico()
 
@@ -140,7 +151,3 @@ classDiagram
     class PanelElectrico
     PanelElectrico: +PagoCarga
     PanelElectrico: +CargaElectrico
-
-    class Asistente
-    Asistente: +TarjetaCredito
-    Asistente: +Efectivo
