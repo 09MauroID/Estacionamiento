@@ -62,13 +62,13 @@ classDiagram
     PisoEstacionamiento: +Vehiculo
 
     class Slot
-    Slot: +Discapacitado
+    Slot: +Discapacitados
     Slot: +Compacto
     Slot: +Grande
     Slot: +Motocicleta
     Slot: +Electrico
     
-    class Discapacitado
+    class Discapacitados
 
     class Compacto
     
@@ -106,7 +106,7 @@ classDiagram
     Asistente: +Efectivo
     
     class Cliente
-    Cliente: +Ticket
+    Cliente: +TicketEntrada
     Cliente: PagarTicket()
     Cliente: PagarPanelElectrico()
 
@@ -124,9 +124,8 @@ classDiagram
     PanelSalida: ActualizarTicket()
 
     class Pago
-    Pago: +TarjetaCredito
-    Pago: +Efectivo
-    Pago: +Monto
+    Pago: +TipodePago
+    Pago: +MontodelPago
 
     class Tarifa
     Tarifa: +TarifaEstacionamiento-1hora
@@ -144,7 +143,7 @@ classDiagram
 
     class PortalInformacionCliente
     PortalInformacionCliente: +PagoTarifa
-    PortalInformacionCliente: +ActualizacionTicket
+    PortalInformacionCliente: ActualizacionTicket()
     PortalInformacionCliente: PagarTarifadeEstacionamiento()
 
     class PanelElectrico
