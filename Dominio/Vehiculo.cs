@@ -1,6 +1,5 @@
 namespace Dominio;
 
-public class Cliente
+public class Vehiculo
 {
-
 }
