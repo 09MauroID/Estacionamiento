@@ -1,8 +1,8 @@
 classDiagram
-    Estacionamiento *-- PlantadeEstacionamiento
-    PlantadeEstacionamiento *-- Slot
+    Estacionamiento *-- PisoEstacionamiento
+    PisoEstacionamiento *-- Slot
     Slot o-- Vehiculo
-    PlantadeEstacionamiento *-- PaneldeEstacionamiento
+    PisoEstacionamiento *-- PaneldeEstacionamiento
     
     Sistema *-- Estacionamiento
     Sistema *-- TicketEstacionamiento
@@ -52,14 +52,14 @@ classDiagram
     class Estacionamiento
     Estacionamiento: +Nombre
     Estacionamiento: +Direccion
-    Estacionamiento: +PlantasdeEstacionamiento
+    Estacionamiento: +PisosdeEstacionamiento
 
-    class PlantadeEstacionamiento
-    PlantadeEstacionamiento: +Nro-Piso
-    PlantadeEstacionamiento: +Slots
-    PlantadeEstacionamiento: +Estado
-    PlantadeEstacionamiento: +Ubicacion
-    PlantadeEstacionamiento: +Vehiculo
+    class PisoEstacionamiento
+    PisoEstacionamiento: +Nro-Piso
+    PisoEstacionamiento: +Slots
+    PisoEstacionamiento: +Estado
+    PisoEstacionamiento: +Ubicacion
+    PisoEstacionamiento: +Vehiculo
 
     class Slot
     Slot: +Discapacitado
