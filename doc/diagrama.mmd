@@ -24,13 +24,12 @@ classDiagram
 
     Cliente *-- TicketEstacionamiento
 
-    TicketEstacionamiento *-- TicketPanelEntrada
-    TicketEstacionamiento <-- TicketPanelSalida
+    TicketEstacionamiento *-- PanelEntrada
     TicketEstacionamiento *-- Vehiculo
 
-    TicketPanelSalida *-- Asistente
-    TicketPanelSalida *-- Pago
-    TicketPanelSalida <|-- PortalInformacionCliente    
+    PanelSalida *-- Asistente
+    PanelSalida *-- Pago
+    PanelSalida <|-- PortalInformacionCliente    
 
     PortalInformacionCliente <-- Pago
 
@@ -112,17 +111,16 @@ classDiagram
 
     class TicketEstacionamiento
     TicketEstacionamiento: +TicketEntrada
-    TicketEstacionamiento: +TicketSalida
 
-    class TicketPanelEntrada
-    TicketPanelEntrada: +TicketEntrada
-    TicketPanelEntrada: EmitirTicketEntrada()
+    class PanelEntrada
+    PanelEntrada: +TicketEntrada
+    PanelEntrada: ImprimirTicketEntrada()
 
-    class TicketPanelSalida
-    TicketPanelSalida: +TicketSalida
-    TicketPanelSalida: +PagoTarifa
-    TicketPanelSalida: PagarTarifadeEstacionamiento()
-    TicketPanelSalida: ActualizarTicket()
+    class PanelSalida
+    PanelSalida: +TicketSalida
+    PanelSalida: +PagoTarifa
+    PanelSalida: PagarTarifadeEstacionamiento()
+    PanelSalida: ActualizarTicket()
 
     class Pago
     Pago: +TarjetaCredito
