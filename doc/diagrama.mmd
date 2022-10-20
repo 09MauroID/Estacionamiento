@@ -5,7 +5,7 @@ classDiagram
     PisoEstacionamiento *-- PaneldeEstacionamiento
     
     Sistema *-- Estacionamiento
-    Sistema *-- TicketEstacionamiento
+    Sistema *-- TicketEntrada
     Sistema *-- PortalAsistenteEstacionamiento
     Sistema *-- PortalInformacionCliente
     Sistema *-- PanelElectrico
@@ -22,11 +22,11 @@ classDiagram
     
     Asistente --> PortalAsistenteEstacionamiento
 
-    Cliente *-- TicketEstacionamiento
+    Cliente *-- TicketEntrada
 
-    TicketEstacionamiento *-- PanelEntrada
-    TicketEstacionamiento *-- PanelSalida
-    TicketEstacionamiento *-- Vehiculo
+    TicketEntrada *-- PanelEntrada
+    TicketEntrada *-- PanelSalida
+    TicketEntrada *-- Vehiculo
 
     PanelSalida *-- Asistente
     PanelSalida *-- Pago
@@ -108,15 +108,17 @@ classDiagram
     Cliente: PagarTicket()
     Cliente: PagarPanelElectrico()
 
-    class TicketEstacionamiento
-    TicketEstacionamiento: +TicketEntrada
+    class TicketEntrada
+    TicketEntrada: +Matricula
+    TicketEntrada: +TipoVehiculo
+    TicketEntrada: +HorarioIngreso
 
     class PanelEntrada
     PanelEntrada: +TicketEntrada
     PanelEntrada: ImprimirTicketEntrada()
 
     class PanelSalida
-    PanelSalida: +TicketEntrada
+    PanelSalida: +TicketSalida
     PanelSalida: +PagoTarifa
     PanelSalida: PagarTarifadeEstacionamiento()
     PanelSalida: ActualizarTicket()
