@@ -2,9 +2,15 @@ namespace Dominio;
 
 public class Asistente
 {
-    public Guid id { get; set; }
-    public string? nombre { get; set; }
-    public string? contrasenia { get; set; }
-    public int tarjetaCredito { get; set; }
-    public int efectivo { get; set; }
+    public Guid id ;
+    public string? nombre ;
+    public string? contrasenia ;
+
+    public Asistente ( Guid id, string nombre, string contrasenia)
+    {
+       this.id= id ;
+       this.nombre = nombre;
+       this.contrasenia= contrasenia; 
+    }
+
 }

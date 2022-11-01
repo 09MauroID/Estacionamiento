@@ -16,6 +16,6 @@ public class administrador
         this.plantas = new List<Planta>();
     }
 
-    public void agregarPisos() => this.plantas.Add(plantas)
+    public void agregarPisos() => this.plantas.Add(new Planta)
 
 }

@@ -1,8 +1,9 @@
 ﻿namespace Dominio;
+
 public class Sistema
 {
-    public list<Usuario> Usuarios;
-    public list<ticketEstacionamiento> Tickets;
+    public List<Usuario> Usuarios;
+    public List<TicketEntrada> Tickets;
     public Estacionamiento estacionamiento;
     public PortalAsistenteEstacionamiento portalAsistenteEstacionamiento;
     public PortalInformacionCliente portalInformacionCliente;
@@ -10,10 +11,10 @@ public class Sistema
 
     public Sistema()
     {
-        this.Usuarios = new list<Usuario>();
-        this.Tickets = new list<ticketEstacionamiento>();
+        this.Usuarios = new List<Usuario>();
+        this.Tickets = new List<TicketEntrada>();
         this.portalAsistenteEstacionamiento = new PortalAsistenteEstacionamiento();
-        this.portalInformacionCliente = new portalInformacionCliente();
+        this.portalInformacionCliente = new PortalInformacionCliente();
         this.panelElectrico = new PanelElectrico();
     }
     public void CrearUsuario(string nombre, string contraseña) => this.Usuarios.Add(new Usuario(nombre, contraseña));
