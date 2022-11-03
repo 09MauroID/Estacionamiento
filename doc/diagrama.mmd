@@ -1,6 +1,6 @@
 classDiagram
     Estacionamiento *-- PisoEstacionamiento
-    PisoEstacionamiento *-- Slot
+    PisoEstacionamiento o-- Slot
     Slot o-- Vehiculo
     PisoEstacionamiento *-- PaneldeEstacionamiento
     
@@ -16,9 +16,9 @@ classDiagram
     Slot <|-- Motocicleta
     Slot <|-- Electrico
     
-    Sistema <|-- Administrador
-    Sistema <|-- Cliente
-    Sistema <|-- Asistente
+    Sistema o-- Administrador
+    Sistema o-- Cliente
+    Sistema o-- Asistente
     
     Asistente --> PortalAsistenteEstacionamiento
 
@@ -36,7 +36,7 @@ classDiagram
 
     PanelElectrico <-- Pago
 
-    Pago <|-- Tarifa
+    Pago *-- Tarifa
 
     class Sistema
     Sistema: +Usuarios
@@ -57,7 +57,7 @@ classDiagram
     class PisoEstacionamiento
     PisoEstacionamiento: +Nro-Piso
     PisoEstacionamiento: +Slots
-    PisoEstacionamiento: +Estado
+    PisoEstacionamiento: +Habilitado
     PisoEstacionamiento: +Ubicacion
     PisoEstacionamiento: +Vehiculo
 
@@ -115,6 +115,7 @@ classDiagram
 
     class PanelEntrada
     PanelEntrada: +TicketEntrada
+    PanelEntrada: +Ubicacion
     PanelEntrada: ImprimirTicketEntrada()
 
     class PanelSalida
