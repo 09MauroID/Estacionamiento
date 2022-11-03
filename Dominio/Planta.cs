@@ -2,20 +2,31 @@ namespace Dominio;
 
 public class Planta
 {
-    public int nroPiso;
-    public int slot;
-    public bool estado;
-    public string? ubicacion;
-    public string? vehiculo;
+    public int nroPiso { get; set; }
+    public List<Slot> slots { get; set; }
+    public string? ubicacion { get; set; }
+    public string? vehiculo { get; set; }
+    public bool habilitado { get; set; } = false;
 
-    public Planta(int nroPiso, int slot, bool estado, string ubicacion, string vehiculo)
+    public Planta(int nroPiso, string ubicacion, string vehiculo)
     {
         this.nroPiso = nroPiso;
-        this.slot = slot;
-        this.estado = false;
+        this.slots = new List<Slot>();
         this.ubicacion = ubicacion;
         this.vehiculo = vehiculo;
+    }
 
+    public void AgregarSlot(Slot slot) => this.slots.Add(slot);
 
+    public void Habilitar()
+    {
+        if (!habilitado)
+            this.habilitado = true;
+    }
+
+    public void Deshabilitar()
+    {
+        if (habilitado == true)
+            this.habilitado = false;
     }
 }

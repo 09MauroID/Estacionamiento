@@ -2,17 +2,19 @@
 
 public class Sistema
 {
-    public List<Usuario> Usuarios;
-    public List<TicketEntrada> Tickets;
-    public Estacionamiento estacionamiento;
-    public PortalAsistenteEstacionamiento portalAsistenteEstacionamiento;
-    public PortalInformacionCliente portalInformacionCliente;
-    public PanelElectrico panelElectrico;
+    public List<Usuario> Usuarios { get; set; }
+    public List<TicketEntrada> Tickets { get; set; }
+    public List<Administrador> administradores { get; set; }
+    public Estacionamiento estacionamiento { get; set; }
+    public PortalAsistenteEstacionamiento portalAsistenteEstacionamiento { get; set; }
+    public PortalInformacionCliente portalInformacionCliente { get; set; }
+    public PanelElectrico panelElectrico { get; set; }
 
     public Sistema()
     {
         this.Usuarios = new List<Usuario>();
         this.Tickets = new List<TicketEntrada>();
+        this.administradores = new List<Administrador>();
         this.portalAsistenteEstacionamiento = new PortalAsistenteEstacionamiento();
         this.portalInformacionCliente = new PortalInformacionCliente();
         this.panelElectrico = new PanelElectrico();
