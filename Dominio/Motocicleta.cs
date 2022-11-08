@@ -7,10 +7,10 @@ namespace Dominio
 {
     public class Motocicleta : Slot
     {
-        public Motocicleta (bool discapacitado, bool compacto, bool grande, bool motocicleta, bool electrico)
-        : base (discapacitado, compacto, grande, motocicleta, electrico)
+        public Motocicleta(bool discapacitado, bool compacto, bool grande, bool motocicleta, bool electrico)
+            : base(discapacitado, compacto, grande, motocicleta, electrico)
         {
-            
+
         }
     }
 }

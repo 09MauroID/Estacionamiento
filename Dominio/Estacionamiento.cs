@@ -2,15 +2,15 @@ namespace Dominio;
 
 public class Estacionamiento
 {
-    public string? Nombre;
-    public string? Direccion;
-    public Planta planta;
+    public string? Nombre { get; set; }
+    public string? Direccion { get; set; }
+    public Planta planta { get; set; }
 
     public Estacionamiento(string Nombre, string Direccion, Planta planta)
     {
         this.Nombre = Nombre;
         this.Direccion = Direccion;
-        this.planta = new Planta;
+        this.planta = planta;
 
     }
 

@@ -1,20 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dominio
+namespace Dominio;
+public class PanelSalida
 {
-    public class panelSalida
+    public string? TicketSalida;
+    public string? PagoTicket;
+    public PanelSalida(string TicketSalida, string PagoTicket)
     {
-        public string? TicketSalida;
-        public string? PagoTicket;
-        public panelSalida(string TicketSalida, string PagoTicket)
-        {
-            this.TicketSalida = TicketSalida;
-            this.PagoTicket = PagoTicket;
-        }
-
-        
+        this.TicketSalida = TicketSalida;
+        this.PagoTicket = PagoTicket;
     }
 }

@@ -8,9 +8,9 @@ namespace Dominio
     public class Grande : Slot
     {
         public Grande(bool discapacitado, bool compacto, bool grande, bool motocicleta, bool electrico)
-        : base (discapacitado, compacto, grande,motocicleta, electrico)
+            : base(discapacitado, compacto, grande, motocicleta, electrico)
         {
-            
+
         }
     }
 }

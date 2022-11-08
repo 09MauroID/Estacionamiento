@@ -7,10 +7,10 @@ namespace Dominio
 {
     public class Discapacitado : Slot
     {
-        public Discapacitado (bool discapacitado, bool compacto, bool grande, bool motocicleta,  bool electrico)
-        :base (discapacitado, compacto, grande,  motocicleta, electrico)    
+        public Discapacitado(bool discapacitado, bool compacto, bool grande, bool motocicleta, bool electrico)
+            : base(discapacitado, compacto, grande, motocicleta, electrico)
         {
-            
+
         }
     }
 }

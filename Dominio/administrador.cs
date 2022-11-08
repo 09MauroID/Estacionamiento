@@ -8,6 +8,7 @@ public class Administrador
 
     public List<Planta> plantas { get; set; }
     public List<Slot> slots { get; set; }
+    public List<Asistente> asistentes { get; set; }
 
     public Administrador(Guid id, string nombre, string contraseña)
 
@@ -17,6 +18,7 @@ public class Administrador
         this.contraseña = contraseña;
         this.plantas = new List<Planta>();
         this.slots = new List<Slot>();
+        this.asistentes = new List<Asistente>();
     }
 
     public void agregarPisos(Planta planta) => this.plantas.Add(planta);
@@ -36,7 +38,7 @@ public class Administrador
         pisobuscado.slots = pisobuscado.slots;
     }
 
-    public void agregarPisos(Slot slot) => this.slots.Add(slot);
+    public void agregarlugares(Slot slot) => this.slots.Add(slot);
 
-    public
+    public void agregarAsistente(Asistente asistente) => this.asistentes.Add(asistente);
 }

@@ -4,20 +4,21 @@ public class Sistema
 {
     public List<Usuario> Usuarios { get; set; }
     public List<TicketEntrada> Tickets { get; set; }
-    public List<Administrador> administradores { get; set; }
-    public Estacionamiento estacionamiento { get; set; }
+    public List<Administrador> Administradores { get; set; }
+    public Estacionamiento Estacionamiento { get; set; }
     public PortalAsistenteEstacionamiento portalAsistenteEstacionamiento { get; set; }
-    public PortalInformacionCliente portalInformacionCliente { get; set; }
-    public PanelElectrico panelElectrico { get; set; }
+    public PortalInformacionCliente PortalInformacionCliente { get; set; }
+    public PanelElectrico PanelElectrico { get; set; }
 
-    public Sistema()
+    public Sistema(Estacionamiento estacionamiento, PortalAsistenteEstacionamiento portalAsistenteEstacionamiento, PortalInformacionCliente portalInformacionCliente, PanelElectrico panelElectrico)
     {
         this.Usuarios = new List<Usuario>();
         this.Tickets = new List<TicketEntrada>();
-        this.administradores = new List<Administrador>();
-        this.portalAsistenteEstacionamiento = new PortalAsistenteEstacionamiento();
-        this.portalInformacionCliente = new PortalInformacionCliente();
-        this.panelElectrico = new PanelElectrico();
+        this.Administradores = new List<Administrador>();
+        this.Estacionamiento = estacionamiento;
+        this.portalAsistenteEstacionamiento = portalAsistenteEstacionamiento;
+        this.PortalInformacionCliente = portalInformacionCliente;
+        this.PanelElectrico = panelElectrico;
     }
     public void CrearUsuario(string nombre, string contraseña) => this.Usuarios.Add(new Usuario(nombre, contraseña));
 

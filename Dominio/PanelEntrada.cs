@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dominio
 {
     public class PanelEntrada
     {
-        public TicketEntrada ticketEntrada { }
+        public TicketEntrada ticketEntrada { get; set; }
+
+        public PanelEntrada(TicketEntrada ticketEntrada)
+        {
+            this.ticketEntrada = ticketEntrada;
+        }
     }
 }

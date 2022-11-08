@@ -2,11 +2,11 @@ namespace Dominio;
 
 public class Cliente
 {
-    public TicketEntrada ticketEntrada;
+    public TicketEntrada ticketEntrada { get; set; }
 
-    public Cliente()
+    public Cliente(TicketEntrada ticketEntrada)
     {
-        this.ticketEntrada = new TicketEntrada();
+        this.ticketEntrada = ticketEntrada;
     }
 
     public void pagarTicket()
@@ -16,6 +16,6 @@ public class Cliente
 
     public void PagarPanelElectrico()
     {
-        
+
     }
 }
