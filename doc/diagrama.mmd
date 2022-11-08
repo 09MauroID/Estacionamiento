@@ -26,11 +26,11 @@ classDiagram
 
     TicketEntrada *-- PanelEntrada
     TicketEntrada *-- PanelSalida
+    TicketEntrada *-- PortalInformacionCliente
     TicketEntrada *-- Vehiculo
 
     PanelSalida *-- Asistente
-    PanelSalida *-- Pago
-    PanelSalida <|-- PortalInformacionCliente    
+    PanelSalida *-- Pago    
 
     PortalInformacionCliente <-- Pago
 
@@ -143,6 +143,7 @@ classDiagram
     PortalAsistenteEstacionamiento: ProcesodePago()
 
     class PortalInformacionCliente
+    PortalInformacionCliente: +TicketSalida
     PortalInformacionCliente: +PagoTarifa
     PortalInformacionCliente: ActualizarTicket()
     PortalInformacionCliente: PagarTarifadeEstacionamiento()
