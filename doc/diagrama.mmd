@@ -36,8 +36,6 @@ classDiagram
 
     PanelElectrico <-- Pago
 
-    Pago *-- Tarifa
-
     class Sistema
     Sistema: +Usuarios
     Sistema: +Tickets
@@ -90,11 +88,12 @@ classDiagram
     Administrador: +Id
     Administrador: +Nombre
     Administrador: +Contraseña
+    Administrador: +Plantas
+    Administrador: +Slots
+    Administrador: +Asistentes
     Administrador: AgregarPisos()
     Administrador: ModificarPisos()
     Administrador: ModificarLugares()
-    Administrador: ModificarPanelesEntrada()
-    Administrador: ModificarPanelesSalida()
     Administrador: AgregarAsistentes()
     Administrador: EliminarAsistentes()
 
@@ -112,6 +111,7 @@ classDiagram
     TicketEntrada: +Matricula
     TicketEntrada: +TipoVehiculo
     TicketEntrada: +HorarioIngreso
+    TicketEntrada: +Monto
 
     class PanelEntrada
     PanelEntrada: +TicketEntrada
@@ -120,7 +120,7 @@ classDiagram
 
     class PanelSalida
     PanelSalida: +TicketSalida
-    PanelSalida: +PagoTarifa
+    PanelSalida: +PagoTicket
     PanelSalida: PagarTarifadeEstacionamiento()
     PanelSalida: ActualizarTicket()
 
@@ -128,23 +128,19 @@ classDiagram
     Pago: +TipodePago
     Pago: +MontodelPago
 
-    class Tarifa
-    Tarifa: +TarifaEstacionamiento-1hora
-    Tarifa: +TarifaEstacionamiento-2hora
-    Tarifa: +TarifaEstacionamiento-3hora
-    Tarifa: +TarifaEstacionamiento-HorasRestantes
-    Tarifa: CalcularMontoHorasTarifa()
-
     class PaneldeEstacionamiento
-    PaneldeEstacionamiento: +DisponibilidadAparcamientoLibre
+    PaneldeEstacionamiento: +EspaciosLibres
 
     class PortalAsistenteEstacionamiento
+    PortalAsistenteEstacionamiento: +Asistentes
+    PortalAsistenteEstacionamiento: +Sistema
     PortalAsistenteEstacionamiento: EscaneoTicket()
     PortalAsistenteEstacionamiento: ProcesodePago()
 
     class PortalInformacionCliente
+    PortalInformacionCliente: +TicketEntrada
     PortalInformacionCliente: +TicketSalida
-    PortalInformacionCliente: +PagoTarifa
+    PortalInformacionCliente: +PagoTicket
     PortalInformacionCliente: ActualizarTicket()
     PortalInformacionCliente: PagarTarifadeEstacionamiento()
 
