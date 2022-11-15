@@ -33,7 +33,6 @@ public class Administrador
 
         pisobuscado.habilitado = planta.habilitado;
         pisobuscado.vehiculo = pisobuscado.vehiculo;
-        pisobuscado.ubicacion = pisobuscado.ubicacion;
         pisobuscado.slots = pisobuscado.slots;
     }
 

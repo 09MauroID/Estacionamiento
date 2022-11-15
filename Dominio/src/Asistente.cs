@@ -12,5 +12,4 @@ public class Asistente
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
-
 }
