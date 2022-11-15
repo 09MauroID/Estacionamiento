@@ -1,9 +1,12 @@
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+<<<<<<< HEAD
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache
+=======
+>>>>>>> 46b4288fc6e5b950497568bab695f30057c11593
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\testhost.dll
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\testhost.exe
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
@@ -94,6 +97,14 @@ C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\zh-Hant\Micros
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\Dominio.dll
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\bin\Debug\net6.0\Dominio.pdb
+<<<<<<< HEAD
+=======
+C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.csproj.AssemblyReference.cache
+C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.AssemblyInfoInputs.cache
+C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.AssemblyInfo.cs
+C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.csproj.CoreCompileInputs.cache
+>>>>>>> 46b4288fc6e5b950497568bab695f30057c11593
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.csproj.CopyComplete
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\Tests.dll
 C:\Users\ET12Compu\Desktop\Estacionamiento\Tests\obj\Debug\net6.0\refint\Tests.dll
