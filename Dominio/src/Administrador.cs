@@ -5,7 +5,6 @@ public class Administrador
     public Guid id { get; set; }
     public string? nombre { get; set; }
     public string? contraseña { get; set; }
-
     public List<Planta> plantas { get; set; }
     public List<Slot> slots { get; set; }
     public List<Asistente> asistentes { get; set; }
