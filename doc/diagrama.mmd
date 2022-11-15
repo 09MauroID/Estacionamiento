@@ -1,20 +1,14 @@
 classDiagram
-    Estacionamiento *-- PisoEstacionamiento
-    PisoEstacionamiento o-- Slot
+    Estacionamiento *-- Planta
+    Planta o-- Slot
     Slot o-- Vehiculo
-    PisoEstacionamiento *-- PaneldeEstacionamiento
+    Planta *-- PaneldeEstacionamiento
     
     Sistema *-- Estacionamiento
     Sistema *-- TicketEntrada
     Sistema *-- PortalAsistenteEstacionamiento
     Sistema *-- PortalInformacionCliente
     Sistema *-- PanelElectrico
-
-    Slot <|-- Discapacitados
-    Slot <|-- Compacto
-    Slot <|-- Grande
-    Slot <|-- Motocicleta
-    Slot <|-- Electrico
     
     Sistema o-- Administrador
     Sistema o-- Cliente
@@ -37,8 +31,9 @@ classDiagram
     PanelElectrico <-- Pago
 
     class Sistema
-    Sistema: +Usuarios
-    Sistema: +Tickets
+    Sistema: +Usuarios~Usuario~
+    Sistema: +Tickets~TicketEntrada~
+    Sistema: +Administradores~Administrador~
     Sistema: +Estacionamiento
     Sistema: +PortalAsistenteEstacionamiento
     Sistema: +PortalInformacionCliente
@@ -50,52 +45,38 @@ classDiagram
     class Estacionamiento
     Estacionamiento: +Nombre
     Estacionamiento: +Direccion
-    Estacionamiento: +PisosdeEstacionamiento
+    Estacionamiento: +Planta
 
-    class PisoEstacionamiento
-    PisoEstacionamiento: +Nro-Piso
-    PisoEstacionamiento: +Slots
-    PisoEstacionamiento: +Habilitado
-    PisoEstacionamiento: +Ubicacion
-    PisoEstacionamiento: +Vehiculo
+    class Planta
+    Planta: +Nro-Piso
+    Planta: +Slots~Slot~
+    Planta: +Habilitado
+    Planta: +Ubicacion
+    Planta: +Vehiculo
+    Planta: AgregarSlot()
+    Planta: Habilitar()
+    Planta: Deshabilitar()
 
     class Slot
-    Slot: +Discapacitados
-    Slot: +Compacto
-    Slot: +Grande
-    Slot: +Motocicleta
-    Slot: +Electrico
-    
-    class Discapacitados
-
-    class Compacto
-    
-    class Grande
-    
-    class Motocicleta
-    
-    class Electrico
-    Electrico: +Carga
+    Slot: +TipoSlot
 
     class Vehiculo
-    Vehiculo: +Automovil
-    Vehiculo: +Camion
-    Vehiculo: +Electrico
-    Vehiculo: +Camioneta
-    Vehiculo: +Motocicleta
+    Vehiculo: +Matricula
+    Vehiculo: +TipoVehiculo
 
     class Administrador
     Administrador: +Id
     Administrador: +Nombre
     Administrador: +Contraseña
-    Administrador: +Plantas
-    Administrador: +Slots
-    Administrador: +Asistentes
+    Administrador: +Plantas~Planta~
+    Administrador: +Slots~Slot~
+    Administrador: +Asistentes~Asistente~
     Administrador: AgregarPisos()
-    Administrador: ModificarPisos()
-    Administrador: ModificarLugares()
-    Administrador: AgregarAsistentes()
-    Administrador: EliminarAsistentes()
+    Administrador: EliminarPisos()
+    Administrador: ModificarPiso()
+    Administrador: AgregarLugares()
+    Administrador: AgregarAsistente()
+    Administrador: EliminarAsistente()
 
     class Asistente
     Asistente: +Id
@@ -126,13 +107,13 @@ classDiagram
 
     class Pago
     Pago: +TipodePago
-    Pago: +MontodelPago
+    Pago: +MontodePago
 
     class PaneldeEstacionamiento
     PaneldeEstacionamiento: +EspaciosLibres
 
     class PortalAsistenteEstacionamiento
-    PortalAsistenteEstacionamiento: +Asistentes
+    PortalAsistenteEstacionamiento: +Asistentes~Asistente~
     PortalAsistenteEstacionamiento: +Sistema
     PortalAsistenteEstacionamiento: EscaneoTicket()
     PortalAsistenteEstacionamiento: ProcesodePago()
