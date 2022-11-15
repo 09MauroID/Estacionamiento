@@ -1,4 +1,4 @@
-﻿namespace Dominio;
+namespace Dominio.src;
 
 public class Sistema
 {
@@ -34,7 +34,4 @@ public class Sistema
     }
 
     public void emitirTicket() => System.Console.WriteLine();
-
-
-
 }

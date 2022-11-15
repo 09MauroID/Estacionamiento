@@ -1,9 +1,9 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class PortalInformacionCliente
 {
-    public string? TicketSalida;
-    public string? PagoTicket;
+    public string? TicketSalida { get; set; }
+    public string? PagoTicket { get; set; }
     public TicketEntrada ticketEntrada { get; set; }
     public PortalInformacionCliente(string TicketSalida, string PagoTicket, TicketEntrada ticketEntrada)
     {

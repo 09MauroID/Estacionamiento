@@ -1,11 +1,11 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class TicketEntrada
 {
-    public string? matricula;
-    public string? tipoVehiculo;
-    public DateTime horarioIngreso;
-    public int Monto;
+    public string? matricula { get; set; }
+    public string? tipoVehiculo { get; set; }
+    public DateTime horarioIngreso { get; set; }
+    public int Monto { get; set; }
     public PanelSalida panelSalida { get; set; }
 
     public TicketEntrada(string matricula, string tipoVehiculo, DateTime horarioIngreso, PanelSalida panelSalida, int Monto)
@@ -16,5 +16,4 @@ public class TicketEntrada
         this.panelSalida = panelSalida;
         this.Monto = Monto;
     }
-
 }

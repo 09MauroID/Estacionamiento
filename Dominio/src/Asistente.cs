@@ -1,10 +1,10 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class Asistente
 {
-    public Guid id;
-    public string? nombre;
-    public string? contrasenia;
+    public Guid id { get; set; }
+    public string? nombre { get; set; }
+    public string? contrasenia { get; set; }
 
     public Asistente(Guid id, string nombre, string contrasenia)
     {

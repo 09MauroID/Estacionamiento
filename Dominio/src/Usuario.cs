@@ -1,4 +1,4 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class Usuario
 {
@@ -6,11 +6,9 @@ public class Usuario
     public string nombre;
     public string contraseña;
 
-    public Usuario (string nombre, string contraseña)
+    public Usuario(string nombre, string contraseña)
     {
         this.nombre = nombre;
         this.contraseña = contraseña;
     }
-    
-
 }

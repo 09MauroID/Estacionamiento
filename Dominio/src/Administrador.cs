@@ -1,4 +1,4 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class Administrador
 {
@@ -41,4 +41,7 @@ public class Administrador
     public void agregarlugares(Slot slot) => this.slots.Add(slot);
 
     public void agregarAsistente(Asistente asistente) => this.asistentes.Add(asistente);
+
+    public void eliminarAsistente(Asistente asistente) => this.asistentes.Remove(asistente);
+
 }

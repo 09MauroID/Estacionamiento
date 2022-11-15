@@ -1,8 +1,8 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class PanelEstacionamiento
 {
-    public int espacioslibres;
+    public int espacioslibres { get; set; }
 
     public PanelEstacionamiento(int espacioslibres)
     {

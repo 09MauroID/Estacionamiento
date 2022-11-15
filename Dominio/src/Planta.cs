@@ -1,4 +1,4 @@
-namespace Dominio;
+namespace Dominio.src;
 
 public class Planta
 {
