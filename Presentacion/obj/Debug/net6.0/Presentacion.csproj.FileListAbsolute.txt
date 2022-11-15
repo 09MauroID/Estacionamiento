@@ -1,0 +1,2 @@
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\Presentacion.csproj.AssemblyReference.cache
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\Presentacion.csproj.GenerateResource.cache
