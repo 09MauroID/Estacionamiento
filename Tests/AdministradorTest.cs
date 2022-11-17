@@ -14,7 +14,7 @@ namespace Tests
         public void AgregarPisos_CuandoAdministradorAgregaPiso_DebeRetornarVerdadero()
         {
             var administrador = new Administrador(Guid.NewGuid(), "Mauro", "123");
-            var planta = new Planta(1, "1");
+            var planta = new Planta(1);
             administrador.agregarPisos(planta);
             Assert.Contains(planta, administrador.plantas);
         }
@@ -22,7 +22,7 @@ namespace Tests
         public void agregarlugares_CuandoAdministradorAgregaLugares_DebeRetornarVerdadero()
         {
             var administrador = new Administrador(Guid.NewGuid(), "Mauro", "123");
-            var slot = new Slot(TipoSlot.discapacitado);
+            var slot = new Slot(TipoSlot.discapacitado, TipoVehiculo.motocicleta);
             administrador.agregarlugares(slot);
             Assert.Contains(slot, administrador.slots);
         }
@@ -38,7 +38,7 @@ namespace Tests
         public void eliminarPisos_CuandoAdministradorElimaPisos_DebeRetornarVerdadero()
         {
             var administrador = new Administrador(Guid.NewGuid(), "Mauro", "123");
-            var planta = new Planta(1, "1");
+            var planta = new Planta(1);
             administrador.agregarPisos(planta);
             administrador.eliminarPisos(planta);
             Assert.DoesNotContain(planta, administrador.plantas);
