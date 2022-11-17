@@ -32,7 +32,6 @@ public class Administrador
             throw new Exception($"no se encontro el piso  {nroPiso}, se encuentra {planta.habilitado}");
 
         pisobuscado.habilitado = planta.habilitado;
-        pisobuscado.vehiculo = pisobuscado.vehiculo;
         pisobuscado.slots = pisobuscado.slots;
     }
 

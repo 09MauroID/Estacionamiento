@@ -4,14 +4,13 @@ public class Planta
 {
     public int nroPiso { get; set; }
     public List<Slot> slots { get; set; }
-    public string? vehiculo { get; set; }
     public bool habilitado { get; set; } = false;
 
-    public Planta(int nroPiso, string vehiculo)
+    public Planta(int nroPiso)
     {
         this.nroPiso = nroPiso;
         this.slots = new List<Slot>();
-        this.vehiculo = vehiculo;
+        
     }
 
     public void AgregarSlot(Slot slot) => this.slots.Add(slot);

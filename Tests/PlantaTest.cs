@@ -11,13 +11,12 @@ namespace Tests
     public class PlantaTest
     {
         [Fact]
-        public void agregarSlot_CuandoPlantaAgregarSlot_DebeRetornarVerdadero()
+        public void AgregarSlot_CuandoPlantaAgregarSlot_DebeRetornarVerdadero()
         {
-            // Given
-        
-            // When
-        
-            // Then
+            var planta = new Planta(1);
+            var slot = new Slot(TipoSlot.motocicleta, TipoVehiculo.motocicleta);
+            planta.AgregarSlot(slot);
+            Assert.Contains(slot, planta.slots);
         }
     }
 }
