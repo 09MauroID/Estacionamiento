@@ -5,21 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentacion.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[Controller]")]
 
-public class PanelEstacionamientoController : ControllerBase
+public class VehiculoController : ControllerBase
 {
     public PresentacionDbContext contexto { get; }
-    public PanelEstacionamientoController(PresentacionDbContext contexto)
+    public VehiculoController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
     }
+
     [HttpGet]
     public ActionResult Get()
     {
-        var PanelEstacionamientos = contexto.PanelEstacionamientos;
-        return Ok(PanelEstacionamientos);
+        var vehiculos = contexto.Vehiculos;
+        return Ok(vehiculos);
     }
-
-
 }

@@ -10,17 +10,17 @@ namespace Presentacion.Controllers;
 
 public class ClienteController : ControllerBase
 {
-    public PresentaciondbContexto contexto { get; }
-    public ClienteController(PresentaciondbContexto contexto)
-    {
-        this.contexto = contexto;
-    }
-    [HttpGet]
-    public ActionResult Get()
-    {
-        var Clientes = contexto.Clientes;
-        return Ok(Clientes);
-    }
-
+    //public PresentacionDbContext contexto { get; }
+    //public ClienteController(PresentacionDbContext contexto)
+    //{
+    //    this.contexto = contexto;
+    //}
+    //[HttpGet]
+    //public ActionResult Get()
+    //{
+    //    var Clientes = contexto.Clientes;
+    //    return Ok(Clientes);
+    //}
+//
 
 }

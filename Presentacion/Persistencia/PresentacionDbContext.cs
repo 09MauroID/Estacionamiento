@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Presentacion.Persistencia;
 
-public class AplicacionDbContext : DbContext
+public class PresentacionDbContext : DbContext
 {
-    public AplicacionDbContext(DbContextOptions<AplicacionDbContext> opciones)
+    public PresentacionDbContext(DbContextOptions<PresentacionDbContext> opciones)
     : base(opciones)
     {
 
     }
-    public DbSet<Sistema> Sistemas { get; set; }
+    //public DbSet<Sistema> Sistemas { get; set; }
     public DbSet<Estacionamiento> Estacionamientos { get; set; }
     public DbSet<Planta> Plantas { get; set; }
     public DbSet<Slot> Slots { get; set; }
@@ -22,6 +22,8 @@ public class AplicacionDbContext : DbContext
     public DbSet<PanelSalida> PanelSalidas { get; set; }
     public DbSet<Pago> Pagos { get; set; }
     public DbSet<PanelEstacionamiento> PanelEstacionamientos { get; set; }
+    public DbSet<PortalAsistenteEstacionamiento> PortalAsistenteEstacionamientos { get; set; }
     public DbSet<PortalInformacionCliente> PortalInformacionClientes { get; set; }
     public DbSet<PanelElectrico> PanelElectricos { get; set; }
+    public DbSet<Vehiculo> Vehiculos { get; set; }
 }
