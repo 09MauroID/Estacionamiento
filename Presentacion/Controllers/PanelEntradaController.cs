@@ -21,4 +21,14 @@ namespace Presentacion.Controllers;
             var panelEntradas = contexto.PanelEntradas;
             return Ok(panelEntradas);
         }
+        [HttpPost]
+        public ActionResult Post([FromBody] PanelEntradaViewModel panelEntrada)
+        {
+            var ticketEntrada = contexto.TicketEntradas.FirstOrDefault(x => x.id == panelEntrada.IdticketEntrada);
+            var nuevopanelEntrada = new PanelEntrada(ticketEntrada!, panelEntrada.ubicacion);
+            contexto.Add(nuevopanelEntrada);
+            contexto.SaveChanges();
+            //return StatusCode(StatusCodes.Status201Created);
+            return Created($"api/PanelEntrada/{nuevopanelEntrada.id}", nuevopanelEntrada);
+        }
     }

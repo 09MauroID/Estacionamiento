@@ -24,9 +24,9 @@ public class VehiculoController : ControllerBase
     [HttpPost]
     public ActionResult Post([FromBody] VehiculoViewModel vehiculo)
     {
-        var nuevoVehiculo = new Vehiculo(vehiculo.matricula,);
+        var nuevoVehiculo = new Vehiculo(vehiculo.matricula, Dominio.Enums.TipoVehiculo.automovil);
         contexto.Add(nuevoVehiculo);
         contexto.SaveChanges();
-        return StatusCode(StatusCodes.Status201Created);
+        return StatusCode(StatusCodes.Status201Created, nuevoVehiculo);
     }
 }
