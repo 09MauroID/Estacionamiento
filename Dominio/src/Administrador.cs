@@ -1,9 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Dominio.src;
 
+[Table("Administrador")]
 public class Administrador
 {
+    [Key]
+    [Required]
     public Guid id { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? nombre { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? contraseña { get; set; }
     public List<Planta> plantas { get; set; }
     public List<Slot> slots { get; set; }
