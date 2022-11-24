@@ -36,3 +36,8 @@ C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\refint\
 C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\Presentacion.pdb
 C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\Presentacion.genruntimeconfig.cache
 C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\ref\Presentacion.dll
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\staticwebassets\msbuild.Presentacion.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\staticwebassets\msbuild.build.Presentacion.props
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Presentacion.props
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Presentacion.props
+C:\Users\ET12Compu\Desktop\Estacionamiento\Presentacion\obj\Debug\net6.0\staticwebassets.pack.json
