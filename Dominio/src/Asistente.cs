@@ -1,9 +1,17 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Dominio.src;
-
+[Table("Asistente")]
 public class Asistente
 {
+    [Key]
+    [Required]
     public Guid id { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? nombre { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? contrasenia { get; set; }
 
     public Asistente(Guid id, string nombre, string contrasenia)

@@ -1,8 +1,13 @@
 using Dominio.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Dominio.src;
 
+[Table("Vehiculo")]
 public class Vehiculo
 {
+    [Key]
+    [Required]
     public string matricula { get; set; }
     public TipoVehiculo tipoVehiculo { get; set; }
 

@@ -1,8 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Dominio.src;
 
+[Table("PortalInformacionCliente")]
 public class PortalInformacionCliente
 {
+    [Key]
+    [Required]
+    public Guid id { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? TicketSalida { get; set; }
+    [StringLength(50)]
+    [Required]
     public string? PagoTicket { get; set; }
     public TicketEntrada ticketEntrada { get; set; }
     public PortalInformacionCliente(string TicketSalida, string PagoTicket, TicketEntrada ticketEntrada)
