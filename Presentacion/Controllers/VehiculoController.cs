@@ -29,6 +29,6 @@ public class VehiculoController : ControllerBase
         contexto.Add(nuevoVehiculo);
         contexto.SaveChanges();
         //return StatusCode(StatusCodes.Status201Created, nuevoVehiculo);
-        return Created($"api/Vehiculo/{vehiculo.id}", vehiculo);
+        return Created($"api/Vehiculo/{vehiculo.matricula}", vehiculo);
     }
 }

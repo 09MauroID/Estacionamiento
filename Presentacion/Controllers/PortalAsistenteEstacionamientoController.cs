@@ -13,12 +13,28 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
     {
         this.contexto = contexto;
     }
-        [HttpGet]
-        public ActionResult Get()
-        {
-            var portalAsistenteEstacionamientos = contexto.PortalAsistenteEstacionamientos;
-            return Ok(portalAsistenteEstacionamientos);
-        }
-        //[HttpPost]
-        //public ActionResult Post([FromBody] PortalAsistenteEstacionamientoViewModel )
+    [HttpGet]
+    public ActionResult Get()
+    {
+        var portalAsistenteEstacionamientos = contexto.PortalAsistenteEstacionamientos;
+        return Ok(portalAsistenteEstacionamientos);
     }
+    [HttpPost]
+    public ActionResult Post([FromBody] PortalAsistenteEstacionamientoViewModel portalAsistenteEstacionamiento)
+    {
+        var nuevoportalAsistenteEstacionamiento = new PortalAsistenteEstacionamiento();
+
+        foreach (var idAsistente in portalAsistenteEstacionamiento.Asistentes)
+        {
+            var asistente = contexto.Asistentes.FirstOrDefault(x => x.id == idAsistente);
+
+            if (asistente is not null)
+            {
+                nuevoportalAsistenteEstacionamiento.AgregarAsistente(asistente);
+                contexto.SaveChanges();
+            }
+        }
+        return Created($"api/PortalAsistenteEstacionamiento/{nuevoportalAsistenteEstacionamiento.id}", nuevoportalAsistenteEstacionamiento);
+    }
+
+}
