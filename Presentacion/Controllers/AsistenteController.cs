@@ -25,7 +25,7 @@ public class AsistenteController : ControllerBase
         var Asistente = contexto.Asistentes.FirstOrDefault(x => x.id == id);
         return Ok(Asistente);
     }
-    [HttpGet]
+    [HttpPost]
     public ActionResult Post([FromBody] AsistenteViewModel asistente)
     {
         var nuevoAsistente = new Asistente(asistente.nombre, asistente.contrasenia);

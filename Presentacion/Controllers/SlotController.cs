@@ -22,7 +22,7 @@ public class SlotController : ControllerBase
         var slots = contexto.Slots;
         return Ok(slots);
     }
-    [HttpGet]
+    [HttpPost]
     public ActionResult Post([FromBody] SlotViewModel slot)
     {
         var nuevoSlot = new Slot((TipoSlot)slot.TipoSlot, (TipoVehiculo)slot.TipoVehiculo);

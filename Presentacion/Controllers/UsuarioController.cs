@@ -26,7 +26,7 @@ public class UsuarioController : ControllerBase
         var Usuario = contexto.Usuarios.FirstOrDefault(x => x.id == id);
         return Ok(Usuario);
     }
-    [HttpGet]
+    [HttpPost]
     public ActionResult Post([FromBody] UsuarioViewModel usuario)
     {
         var nuevoUsuario = new Usuario(usuario.nombre, usuario.contraseña);
