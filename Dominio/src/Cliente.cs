@@ -14,6 +14,10 @@ public class Cliente
         this.ticketEntrada = ticketEntrada;
     }
 
+    public Cliente()
+    {
+    }
+
     public void pagarTicket()
     {
 

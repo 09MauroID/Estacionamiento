@@ -11,6 +11,7 @@ public class PresentacionDbContext : DbContext
 
     }
     //public DbSet<Sistema> Sistemas { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Estacionamiento> Estacionamientos { get; set; }
     public DbSet<Planta> Plantas { get; set; }
     public DbSet<Slot> Slots { get; set; }

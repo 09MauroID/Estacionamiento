@@ -13,6 +13,11 @@ public class PortalAsistenteEstacionamiento
     {
         this.Asistentes = new List<Asistente>();
     }
+
+    public PortalAsistenteEstacionamiento()
+    {
+    }
+
     public void EscaneoDeticket(string matricula)
     {
         //var escaneo = sistema.Tickets.SingleOrDefault(x => x.matricula == matricula);

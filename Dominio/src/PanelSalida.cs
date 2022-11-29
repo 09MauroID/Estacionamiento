@@ -16,4 +16,8 @@ public class PanelSalida
         this.TicketSalida = TicketSalida;
         this.PagoTicket = PagoTicket;
     }
+
+    public PanelSalida()
+    {
+    }
 }

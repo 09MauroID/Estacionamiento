@@ -22,6 +22,10 @@ public class PortalInformacionCliente
         this.ticketEntrada = ticketEntrada;
     }
 
+    public PortalInformacionCliente()
+    {
+    }
+
     public void ActualizarTicket(TicketEntrada ticketEntrada)
     {
 

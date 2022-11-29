@@ -19,10 +19,9 @@ public class Administrador
     public List<Slot> slots { get; set; }
     public List<Asistente> asistentes { get; set; }
 
-    public Administrador(Guid id, string nombre, string contraseña)
+    public Administrador(string nombre, string contraseña)
 
     {
-        this.id = id;
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.plantas = new List<Planta>();
