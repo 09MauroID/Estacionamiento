@@ -2,9 +2,9 @@ namespace Dominio.Enums;
 
 public enum TipoSlot
 {
-    discapacitado,
-    compacto,
-    grande,
-    motocicleta,
-    electrico,
+    discapacitado = 1,
+    compacto = 2,
+    grande = 3,
+    motocicleta = 4,
+    electrico = 5
 }

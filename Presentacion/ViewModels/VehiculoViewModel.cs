@@ -8,4 +8,5 @@ namespace Presentacion.ViewModels;
 public class VehiculoViewModel
 {
     public string matricula { get; set; }
+    public int TipoVehiculo { get; set; }
 }

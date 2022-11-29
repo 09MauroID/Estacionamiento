@@ -20,4 +20,6 @@ namespace Presentacion.Controllers;
             var portalAsistenteEstacionamientos = contexto.PortalAsistenteEstacionamientos;
             return Ok(portalAsistenteEstacionamientos);
         }
+        //[HttpPost]
+        //public ActionResult Post([FromBody] PortalAsistenteEstacionamientoViewModel )
     }

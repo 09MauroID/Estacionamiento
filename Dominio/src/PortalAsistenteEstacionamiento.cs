@@ -9,14 +9,12 @@ public class PortalAsistenteEstacionamiento
     public Guid id { get; set; }
     public List<Asistente> Asistentes { get; set; }
 
-    public Sistema sistema { get; set; }
-    public PortalAsistenteEstacionamiento(Sistema sistema)
+    public PortalAsistenteEstacionamiento()
     {
         this.Asistentes = new List<Asistente>();
-        this.sistema = sistema;
     }
     public void EscaneoDeticket(string matricula)
     {
-        var escaneo = sistema.Tickets.SingleOrDefault(x => x.matricula == matricula);
+        //var escaneo = sistema.Tickets.SingleOrDefault(x => x.matricula == matricula);
     }
 }
