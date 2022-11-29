@@ -10,7 +10,7 @@ namespace Presentacion.Controllers;
 
 public class TicketEntradaController : ControllerBase
 {
-    /*public PresentacionDbContext contexto { get; }
+    public PresentacionDbContext contexto { get; }
     public TicketEntradaController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -30,5 +30,5 @@ public class TicketEntradaController : ControllerBase
         contexto.SaveChanges();
         //return StatusCode(StatusCodes.Status201Created);
         return Created($"api/TicketEntrada/{nuevoticketEntrada.id}", nuevoticketEntrada);
-    }*/
+    }
 }

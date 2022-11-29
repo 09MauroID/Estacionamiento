@@ -14,9 +14,8 @@ public class Asistente
     [Required]
     public string? contrasenia { get; set; }
 
-    public Asistente(Guid id, string nombre, string contrasenia)
+    public Asistente(string nombre, string contrasenia)
     {
-        this.id = id;
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }

@@ -9,7 +9,7 @@ namespace Presentacion.Controllers;
 
 public class PanelEntradaController : ControllerBase
 {
-    /*public PresentacionDbContext contexto { get; }
+    public PresentacionDbContext contexto { get; }
     public PanelEntradaController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -30,5 +30,5 @@ public class PanelEntradaController : ControllerBase
         contexto.SaveChanges();
         //return StatusCode(StatusCodes.Status201Created);
         return Created($"api/PanelEntrada/{nuevopanelEntrada.id}", nuevopanelEntrada);
-    }*/
+    }
 }

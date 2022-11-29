@@ -8,7 +8,7 @@ namespace Presentacion.Controllers;
 [Route("api/[Controller]")]
 public class PortalAsistenteEstacionamientoController : ControllerBase
 {
-    /*public PresentacionDbContext contexto { get; }
+    public PresentacionDbContext contexto { get; }
     public PortalAsistenteEstacionamientoController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -19,5 +19,5 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
     {
         var portalAsistenteEstacionamientos = contexto.PortalAsistenteEstacionamientos;
         return Ok(portalAsistenteEstacionamientos);
-    }*/
+    }
 }

@@ -8,7 +8,7 @@ namespace Presentacion.Controllers;
 [Route("api/[controller]")]
 public class AsistenteController : ControllerBase
 {
-    /*public PresentacionDbContext contexto { get; }
+    public PresentacionDbContext contexto { get; }
     public AsistenteController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -22,15 +22,15 @@ public class AsistenteController : ControllerBase
     [HttpGet("{id:Guid}")]
     public ActionResult Get(Guid id)
     {
-        var Asistente = contexto.Asistente.FirstOrDefault(x => x.id == id);
+        var Asistente = contexto.Asistentes.FirstOrDefault(x => x.id == id);
         return Ok(Asistente);
     }
     [HttpGet]
-    public ActionResult Post([FromBody] UsuarioViewModel Asistente)
+    public ActionResult Post([FromBody] AsistenteViewModel asistente)
     {
-        var nuevoAsistente = new Asistente(Asistente.Nombre, Asistente.Contraseña);
+        var nuevoAsistente = new Asistente(asistente.nombre, asistente.contrasenia);
         contexto.Add(nuevoAsistente);
-        contexto.SaveChanger();
-        return Statuscode(StatusCode.Status201Created);
-    }*/
+        contexto.SaveChanges();
+        return StatusCode(StatusCodes.Status201Created);
+    }
 }

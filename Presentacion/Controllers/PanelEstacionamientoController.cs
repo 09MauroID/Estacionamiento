@@ -9,7 +9,7 @@ namespace Presentacion.Controllers;
 
 public class PanelEstacionamientoController : ControllerBase
 {
-    /*public PresentacionDbContext contexto { get; }
+    public PresentacionDbContext contexto { get; }
     public PanelEstacionamientoController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -19,7 +19,7 @@ public class PanelEstacionamientoController : ControllerBase
     {
         var PanelEstacionamientos = contexto.PanelEstacionamientos;
         return Ok(PanelEstacionamientos);
-    }*/
+    }
 
 
 }

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Presentacion.ViewModels;
-public class Asistente
+public class AsistenteViewModel
 {
     public string nombre { get; set; }
-    public string contraseña { get; set; }
-
+    public string contrasenia { get; set; }
 }

@@ -26,11 +26,11 @@ public class AdministradorController : ControllerBase
         return Ok(Administrador);
     }
     [HttpPost]
-    public ActionResult Post([FromBody] UsuarioViewModel Administrador)
+    public ActionResult Post([FromBody] AdministradorViewModel administrador)
     {
-        var nuevoAdministrador = new Administrador(administrador.Nombre, administrador.Contraseña);
+        var nuevoAdministrador = new Administrador(administrador.nombre, administrador.contraseña);
         contexto.Add(nuevoAdministrador);
-        Contexto.SaveChanger();
+        contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created);
     }
 }
