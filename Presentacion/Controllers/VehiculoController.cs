@@ -9,7 +9,7 @@ namespace Presentacion.Controllers;
 
 public class VehiculoController : ControllerBase
 {
-    public PresentacionDbContext contexto { get; }
+    /*public PresentacionDbContext contexto { get; }
     public VehiculoController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -28,5 +28,5 @@ public class VehiculoController : ControllerBase
         contexto.Add(nuevoVehiculo);
         contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created, nuevoVehiculo);
-    }
+    }*/
 }

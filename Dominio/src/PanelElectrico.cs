@@ -4,9 +4,20 @@ namespace Dominio.src;
 [Table("PanelElectrico")]
 public class PanelElectrico
 {
+
     [Key]
     [Required]
     public Guid id { get; set; }
+
+    public PanelElectrico(Guid id)
+    {
+        this.id = id;
+    }
+
+    public PanelElectrico()
+    {
+    }
+
     public void pagarCarga()
     {
 

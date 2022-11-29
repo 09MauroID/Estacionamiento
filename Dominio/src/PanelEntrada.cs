@@ -17,4 +17,8 @@ public class PanelEntrada
         this.ticketEntrada = ticketEntrada;
         this.ubicacion = ubicacion;
     }
+
+    public PanelEntrada()
+    {
+    }
 }

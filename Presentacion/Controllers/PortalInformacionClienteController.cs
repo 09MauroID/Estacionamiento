@@ -9,7 +9,7 @@ namespace Presentacion.Controllers;
 
 public class PortalInformacionClienteController : ControllerBase
 {
-    public PresentacionDbContext contexto { get; }
+    /*public PresentacionDbContext contexto { get; }
     public PortalInformacionClienteController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -30,5 +30,5 @@ public class PortalInformacionClienteController : ControllerBase
         contexto.SaveChanges();
         //return StatusCode(StatusCodes.Status201Created);
         return Created($"api/PortalInformacionCliente/{portalInformacionCliente.id}", portalInformacionCliente);
-    }
+    }*/
 }

@@ -23,5 +23,9 @@ public class Estacionamiento
 
     }
 
+    public Estacionamiento()
+    {
+    }
+
     // este metodo no sirve pa mas nada que adornopublic void estacionamiento()
 }

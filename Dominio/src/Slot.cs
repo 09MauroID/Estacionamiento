@@ -17,4 +17,8 @@ public class Slot
         TipoSlot = tipo;
         this.tipoVehiculo = tipoVehiculo;
     }
+
+    public Slot()
+    {
+    }
 }
