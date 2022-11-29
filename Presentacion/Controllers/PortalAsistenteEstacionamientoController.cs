@@ -13,8 +13,6 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
     {
         this.contexto = contexto;
     }
-
-<<<<<<< HEAD
         [HttpGet]
         public ActionResult Get()
         {
@@ -24,12 +22,3 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
         //[HttpPost]
         //public ActionResult Post([FromBody] PortalAsistenteEstacionamientoViewModel )
     }
-=======
-    [HttpGet]
-    public ActionResult Get()
-    {
-        var portalAsistenteEstacionamientos = contexto.PortalAsistenteEstacionamientos;
-        return Ok(portalAsistenteEstacionamientos);
-    }
-}
->>>>>>> 68520a82137fbb7a0ef43e3b40346f91266ae9ef

@@ -10,11 +10,7 @@ namespace Presentacion.Controllers;
 
 public class SlotController : ControllerBase
 {
-<<<<<<< HEAD
     public PresentacionDbContext contexto { get; }
-=======
-    /*public PresentacionDbContext contexto { get; }
->>>>>>> 68520a82137fbb7a0ef43e3b40346f91266ae9ef
     public SlotController(PresentacionDbContext contexto)
     {
         this.contexto = contexto;
@@ -25,7 +21,6 @@ public class SlotController : ControllerBase
     {
         var slots = contexto.Slots;
         return Ok(slots);
-<<<<<<< HEAD
     }
     [HttpGet]
     public ActionResult Post([FromBody] SlotViewModel slot)
@@ -35,7 +30,4 @@ public class SlotController : ControllerBase
         contexto.SaveChanges();
         return Created($"api/Slot/{nuevoSlot.id}", nuevoSlot);
     }
-=======
-    }*/
->>>>>>> 68520a82137fbb7a0ef43e3b40346f91266ae9ef
 }
