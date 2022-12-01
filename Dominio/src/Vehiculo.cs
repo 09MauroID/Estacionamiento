@@ -16,4 +16,10 @@ public class Vehiculo
         this.matricula = matricula;
         this.tipoVehiculo = tipoVehiculo;
     }
+    
+    public void Actualizar(string matricula, int TipoVehiculo)
+    {
+        this.matricula = matricula;
+        this.tipoVehiculo = (TipoVehiculo)tipoVehiculo;
+    }
 }

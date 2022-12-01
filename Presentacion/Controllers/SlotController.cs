@@ -30,4 +30,28 @@ public class SlotController : ControllerBase
         contexto.SaveChanges();
         return Created($"api/Slot/{nuevoSlot.id}", nuevoSlot);
     }
+    
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put([FromBody] SlotViewModel slot, Guid id)
+    {
+        var slotModificar = contexto.Slots.FirstOrDefault(x => x.id == id);
+
+        slotModificar.Actualizar(slot.TipoSlot, slot.TipoVehiculo);
+
+        contexto.SaveChanges();
+
+        return Ok(slotModificar);
+    }
+    
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var slotBorrar = contexto.Slots.FirstOrDefault(x => x.id == id);
+
+        contexto.Slots.Remove(slotBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }

@@ -31,4 +31,28 @@ public class VehiculoController : ControllerBase
         //return StatusCode(StatusCodes.Status201Created, nuevoVehiculo);
         return Created($"api/Vehiculo/{vehiculo.matricula}", vehiculo);
     }
+    
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put([FromBody] VehiculoViewModel vehiculo, string matricula)
+    {
+        var vehiculoModificar = contexto.Vehiculos.FirstOrDefault(x => x.matricula == matricula);
+
+        vehiculoModificar.Actualizar(vehiculo.matricula, vehiculo.TipoVehiculo);
+
+        contexto.SaveChanges();
+
+        return Ok(vehiculoModificar);
+    }
+
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(string matricula)
+    {
+        var vehiculoBorrar = contexto.Vehiculos.FirstOrDefault(x => x.matricula == matricula);
+
+        contexto.Vehiculos.Remove(vehiculoBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }

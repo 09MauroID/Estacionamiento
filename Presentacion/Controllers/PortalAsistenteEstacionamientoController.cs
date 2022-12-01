@@ -37,4 +37,15 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
         return Created($"api/PortalAsistenteEstacionamiento/{nuevoportalAsistenteEstacionamiento.id}", nuevoportalAsistenteEstacionamiento);
     }
 
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var asistenteBorrar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+
+        contexto.Asistentes.Remove(asistenteBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }

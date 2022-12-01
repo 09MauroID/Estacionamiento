@@ -9,16 +9,21 @@ public class Slot
     [Key]
     [Required]
     public Guid id { get; set; }
-    public TipoSlot TipoSlot { get; set; }
+    public TipoSlot tipoSlot { get; set; }
     public TipoVehiculo tipoVehiculo { get; set; }
 
-    public Slot(TipoSlot tipo, TipoVehiculo tipoVehiculo)
+    public Slot(TipoSlot tipoSlot, TipoVehiculo tipoVehiculo)
     {
-        TipoSlot = tipo;
+        this.tipoSlot = tipoSlot;
         this.tipoVehiculo = tipoVehiculo;
     }
 
     public Slot()
     {
+    }
+    public void Actualizar(int TipoSlot, int TipoVehiculo)
+    {
+        this.tipoSlot = (TipoSlot)tipoSlot;
+        this.tipoVehiculo = (TipoVehiculo)tipoVehiculo;
     }
 }
