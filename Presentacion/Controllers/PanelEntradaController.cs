@@ -31,4 +31,28 @@ public class PanelEntradaController : ControllerBase
         //return StatusCode(StatusCodes.Status201Created);
         return Created($"api/PanelEntrada/{nuevopanelEntrada.id}", nuevopanelEntrada);
     }
+    
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put([FromBody] PanelEntradaViewModel panelEntrada, Guid id)
+    {
+        var panelEntradaModificar = contexto.PanelEntradas.FirstOrDefault(x => x.id == id);
+
+        panelEntradaModificar.Actualizar(panelEntrada.ubicacion);
+
+        contexto.SaveChanges();
+
+        return Ok(panelEntradaModificar);
+    }
+    
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var panelEntradaBorrar = contexto.PanelEntradas.FirstOrDefault(x => x.id == id);
+
+        contexto.PanelEntradas.Remove(panelEntradaBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }

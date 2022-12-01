@@ -33,6 +33,22 @@ public class UsuarioController : ControllerBase
         contexto.Add(nuevoUsuario);
         contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created);
+    }
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var usuarioBorrar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
+        contexto.Usuarios.Remove(usuarioBorrar);
+        contexto.SaveChanges();
+        return Ok();
+    }
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put ([FromBody] UsuarioViewModel usuario, Guid id)
 
+    {
+        var usuarioModificar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
+        usuarioModificar.ActualizarUsuario(usuario.nombre, usuario.contraseña);
+        contexto.SaveChanges();
+        return Ok(usuarioModificar);
     }
 }

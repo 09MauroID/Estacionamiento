@@ -7,5 +7,5 @@ namespace Presentacion.ViewModels;
 
 public class PanelEstacionamientoViewModel
 {
-    public string espacioslibres { get; set; }
+    public int espacioslibres { get; set; }
 }

@@ -14,11 +14,22 @@ public class PanelEstacionamientoController : ControllerBase
     {
         this.contexto = contexto;
     }
+    
     [HttpGet]
     public ActionResult Get()
     {
         var PanelEstacionamientos = contexto.PanelEstacionamientos;
         return Ok(PanelEstacionamientos);
+    }
+    [HttpPost]
+    public ActionResult Post([FromBody] PanelEstacionamientoViewModel panelEstacionamiento)
+
+    {
+        var nuevopanelEstacionamiento = new PanelEstacionamiento( panelEstacionamiento.espacioslibres);
+        contexto.PanelEstacionamientos.Add(nuevopanelEstacionamiento);
+        contexto.SaveChanges();
+        return Ok(nuevopanelEstacionamiento);
+
     }
 
 
