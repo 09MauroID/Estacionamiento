@@ -26,4 +26,9 @@ public class Usuario
     {
 
     }
+    public void ActualizarUsuario(string nombre, string contraseña)
+    {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+    }
 }

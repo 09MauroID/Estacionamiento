@@ -29,6 +29,15 @@ public class Administrador
         this.asistentes = new List<Asistente>();
     }
 
+    public Administrador()
+    {
+    }
+
+    public void Actualizar(string nombre, string contraseña)
+    {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+    }
     public void agregarPisos(Planta planta) => this.plantas.Add(planta);
 
     public void eliminarPisos(Planta planta) => this.plantas.Remove(planta);

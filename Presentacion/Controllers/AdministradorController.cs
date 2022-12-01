@@ -33,5 +33,21 @@ public class AdministradorController : ControllerBase
         contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created);
     }
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put([FromBody] AdministradorViewModel administrador, Guid id) 
+    {
+        var administradorModificar = contexto.Administradores.FirstOrDefault(x => x.id == id);
+        administradorModificar.Actualizar(administrador.nombre, administrador.contraseña);
+        contexto.SaveChanges();
+        return Ok(administradorModificar);
+    }
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var administradorBorrar = contexto.Administradores.FirstOrDefault(x => x.id == id);
+        contexto.Administradores.Remove(administradorBorrar);
+        contexto.SaveChanges();
+        return Ok();
+    }
 }
 

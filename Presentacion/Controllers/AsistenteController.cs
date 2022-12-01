@@ -33,4 +33,26 @@ public class AsistenteController : ControllerBase
         contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created);
     }
+    [HttpPut("{id:Guid}")]
+    public ActionResult Put([FromBody] AsistenteViewModel asistente, Guid id)
+    {
+        var asistenteModificar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+
+        asistenteModificar.Actualizar(asistente.nombre, asistente.contrasenia);
+
+        contexto.SaveChanges();
+
+        return Ok(asistenteModificar);
+    }
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var asistenteBorrar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+
+        contexto.Asistentes.Remove(asistenteBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }

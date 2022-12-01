@@ -7,7 +7,6 @@ public class Sistema
     public List<TicketEntrada> Tickets { get; set; }
     public List<Administrador> Administradores { get; set; }
     public Estacionamiento Estacionamiento { get; set; }
-
     public PortalInformacionCliente PortalInformacionCliente { get; set; }
     public PanelElectrico PanelElectrico { get; set; }
 

@@ -21,4 +21,8 @@ public class PanelEntrada
     public PanelEntrada()
     {
     }
+    public void Actualizar(string ubicacion)
+    {
+        this.ubicacion = ubicacion;
+    }
 }
