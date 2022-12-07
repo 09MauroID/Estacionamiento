@@ -19,7 +19,7 @@ public class Asistente
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
-    public void Actualizar(string nombre, string contraseña)
+    public void Actualizar(string nombre, string contrasenia)
     {
         this.nombre = nombre;
         this.contrasenia = contrasenia;

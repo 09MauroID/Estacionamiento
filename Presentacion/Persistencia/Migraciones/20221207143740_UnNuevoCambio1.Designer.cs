@@ -2,17 +2,19 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Presentacion.Persistencia;
 
 #nullable disable
 
-namespace Presentacion.Presentacion.Migracion
+namespace Presentacion.Persistencia.Migraciones
 {
     [DbContext(typeof(PresentacionDbContext))]
-    partial class PresentacionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207143740_UnNuevoCambio1")]
+    partial class UnNuevoCambio1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
