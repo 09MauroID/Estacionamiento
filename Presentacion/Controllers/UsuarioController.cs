@@ -38,15 +38,21 @@ public class UsuarioController : ControllerBase
     public ActionResult Delete(Guid id)
     {
         var usuarioBorrar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
+        if (usuarioBorrar is null)
+            throw new Exception("no existe un usuario con ese Id.");
+
         contexto.Usuarios.Remove(usuarioBorrar);
         contexto.SaveChanges();
         return Ok();
     }
     [HttpPut("{id:Guid}")]
-    public ActionResult Put ([FromBody] UsuarioViewModel usuario, Guid id)
+    public ActionResult Put([FromBody] UsuarioViewModel usuario, Guid id)
 
     {
         var usuarioModificar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
+        if (usuarioModificar is null)
+            throw new Exception("no existe un usuario con ese Id.");
+
         usuarioModificar.ActualizarUsuario(usuario.nombre, usuario.contraseña);
         contexto.SaveChanges();
         return Ok(usuarioModificar);

@@ -23,7 +23,7 @@ public class VehiculoController : ControllerBase
         return Ok(vehiculos);
     }
     [HttpPost]
-    public ActionResult Post([FromBody] VehiculoViewModel vehiculo)
+    public ActionResult Post([FromBody] VehiculoAltaViewModel vehiculo)
     {
         var nuevoVehiculo = new Vehiculo(vehiculo.matricula, (TipoVehiculo)vehiculo.TipoVehiculo);
         contexto.Add(nuevoVehiculo);
@@ -31,23 +31,30 @@ public class VehiculoController : ControllerBase
         //return StatusCode(StatusCodes.Status201Created, nuevoVehiculo);
         return Created($"api/Vehiculo/{vehiculo.matricula}", vehiculo);
     }
-    
-    [HttpPut("{id:Guid}")]
+
+    [HttpPut("{matricula}")]
     public ActionResult Put([FromBody] VehiculoViewModel vehiculo, string matricula)
     {
         var vehiculoModificar = contexto.Vehiculos.FirstOrDefault(x => x.matricula == matricula);
+        if (vehiculoModificar is null)
+            throw new Exception("no existe un vehiculo con ese Id.");
 
-        vehiculoModificar.Actualizar(vehiculo.matricula, vehiculo.TipoVehiculo);
+
+
+        vehiculoModificar.Actualizar(vehiculo.TipoVehiculo);
 
         contexto.SaveChanges();
 
         return Ok(vehiculoModificar);
     }
 
-    [HttpDelete("{id:Guid}")]
+    [HttpDelete("{matricula}")]
     public ActionResult Delete(string matricula)
     {
         var vehiculoBorrar = contexto.Vehiculos.FirstOrDefault(x => x.matricula == matricula);
+        if (vehiculoBorrar is null)
+            throw new Exception("no existe un vehiculo con ese Id.");
+
 
         contexto.Vehiculos.Remove(vehiculoBorrar);
 

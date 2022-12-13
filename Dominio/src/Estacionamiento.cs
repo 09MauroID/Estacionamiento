@@ -20,7 +20,6 @@ public class Estacionamiento
         this.Nombre = Nombre;
         this.Direccion = Direccion;
         this.planta = planta;
-
     }
 
     public Estacionamiento()

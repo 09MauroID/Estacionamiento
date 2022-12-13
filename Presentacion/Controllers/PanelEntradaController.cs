@@ -27,7 +27,7 @@ public class PanelEntradaController : ControllerBase
         var nuevopanelEntrada = new PanelEntrada(panelEntrada.ubicacion);
         contexto.PanelEntradas.Add(nuevopanelEntrada);
         contexto.SaveChanges();
-        return Created($"api/PanelEntrada/{nuevopanelEntrada.id}", nuevopanelEntrada);
+        return Created($"api/PanelEntrada/{nuevopanelEntrada.ubicacion}", nuevopanelEntrada);
     }
 
     [HttpPost]
@@ -36,6 +36,9 @@ public class PanelEntradaController : ControllerBase
     {
         var panelEntrada = contexto.PanelEntradas.FirstOrDefault(x => x.id == idPanelEntrada);
         var ticketEntrada1 = new TicketEntrada(ticketEntrada.matricula, ticketEntrada.tipoVehiculo, ticketEntrada.horarioIngreso, ticketEntrada.Monto);
+        if (panelEntrada is null)
+            throw new Exception("no existe un panel de entrada con ese Id.");
+
 
         panelEntrada.AgregarTicketEntrada(ticketEntrada1);
 
@@ -47,6 +50,9 @@ public class PanelEntradaController : ControllerBase
     public ActionResult Put([FromBody] PanelEntradaViewModel panelEntrada, Guid id)
     {
         var panelEntradaModificar = contexto.PanelEntradas.FirstOrDefault(x => x.id == id);
+        if (panelEntradaModificar is null)
+            throw new Exception("no existe un panel de entrada con ese Id.");
+
 
         panelEntradaModificar.Actualizar(panelEntradaModificar.ubicacion);
 
@@ -55,15 +61,4 @@ public class PanelEntradaController : ControllerBase
         return Ok(panelEntradaModificar);
     }
 
-    [HttpDelete("{id:Guid}")]
-    public ActionResult Delete(Guid id)
-    {
-        var panelEntradaBorrar = contexto.PanelEntradas.FirstOrDefault(x => x.id == id);
-
-        contexto.PanelEntradas.Remove(panelEntradaBorrar);
-
-        contexto.SaveChanges();
-
-        return Ok();
-    }
 }

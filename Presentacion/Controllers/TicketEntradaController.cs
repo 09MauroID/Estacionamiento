@@ -31,4 +31,19 @@ public class TicketEntradaController : ControllerBase
         //return StatusCode(StatusCodes.Status201Created);
         return Created($"api/TicketEntrada/{nuevoticketEntrada.id}", nuevoticketEntrada);
     }
+
+    [HttpDelete]
+    public ActionResult Delete(Guid id)
+    {
+        var ticketBorrar = contexto.TicketEntradas.FirstOrDefault(x => x.id == id);
+        if (ticketBorrar is null)
+            throw new Exception("no existe un ticket con ese Id.");
+
+
+        contexto.TicketEntradas.Remove(ticketBorrar);
+
+        contexto.SaveChanges();
+
+        return Ok();
+    }
 }
