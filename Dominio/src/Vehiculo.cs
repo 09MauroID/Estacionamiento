@@ -20,6 +20,6 @@ public class Vehiculo
     public void Actualizar(int TipoVehiculo)
     {
 
-        this.tipoVehiculo = (TipoVehiculo)tipoVehiculo;
+        this.tipoVehiculo = (TipoVehiculo)TipoVehiculo;
     }
 }

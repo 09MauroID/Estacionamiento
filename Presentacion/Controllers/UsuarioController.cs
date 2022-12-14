@@ -34,17 +34,6 @@ public class UsuarioController : ControllerBase
         contexto.SaveChanges();
         return StatusCode(StatusCodes.Status201Created);
     }
-    [HttpDelete("{id:Guid}")]
-    public ActionResult Delete(Guid id)
-    {
-        var usuarioBorrar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
-        if (usuarioBorrar is null)
-            throw new Exception("no existe un usuario con ese Id.");
-
-        contexto.Usuarios.Remove(usuarioBorrar);
-        contexto.SaveChanges();
-        return Ok();
-    }
     [HttpPut("{id:Guid}")]
     public ActionResult Put([FromBody] UsuarioViewModel usuario, Guid id)
 
@@ -56,5 +45,17 @@ public class UsuarioController : ControllerBase
         usuarioModificar.ActualizarUsuario(usuario.nombre, usuario.contraseña);
         contexto.SaveChanges();
         return Ok(usuarioModificar);
+    }
+
+    [HttpDelete("{id:Guid}")]
+    public ActionResult Delete(Guid id)
+    {
+        var usuarioBorrar = contexto.Usuarios.FirstOrDefault(x => x.id == id);
+        if (usuarioBorrar is null)
+            throw new Exception("no existe un usuario con ese Id.");
+
+        contexto.Usuarios.Remove(usuarioBorrar);
+        contexto.SaveChanges();
+        return Ok();
     }
 }

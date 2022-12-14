@@ -29,6 +29,6 @@ public class PortalInformacionClienteController : ControllerBase
         contexto.Add(nuevoportalInformacionCliente);
         contexto.SaveChanges();
         //return StatusCode(StatusCodes.Status201Created);
-        return Created($"api/PortalInformacionCliente/{portalInformacionCliente.id}", portalInformacionCliente);
+        return Created($"api/PortalInformacionCliente/{nuevoportalInformacionCliente.id}", nuevoportalInformacionCliente);
     }
 }
