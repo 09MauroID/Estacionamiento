@@ -37,6 +37,9 @@ public class AsistenteController : ControllerBase
     public ActionResult Put([FromBody] AsistenteViewModel asistente, Guid id)
     {
         var asistenteModificar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+        
+        if (asistenteModificar is null)
+            throw new Exception("no existe un asistente de entrada con ese Id.");
 
         asistenteModificar.Actualizar(asistente.nombre, asistente.contrasenia);
 
@@ -48,6 +51,8 @@ public class AsistenteController : ControllerBase
     public ActionResult Delete(Guid id)
     {
         var asistenteBorrar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+        if (asistenteBorrar is null)
+            throw new Exception("no existe un asistente de entrada con ese Id.");
 
         contexto.Asistentes.Remove(asistenteBorrar);
 

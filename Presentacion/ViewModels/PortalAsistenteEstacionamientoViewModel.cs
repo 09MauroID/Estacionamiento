@@ -1,5 +1,3 @@
-using Dominio.src;
-
 namespace Presentacion.ViewModels;
 
 public class PortalAsistenteEstacionamientoViewModel

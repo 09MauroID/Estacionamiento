@@ -35,6 +35,8 @@ public class SlotController : ControllerBase
     public ActionResult Put([FromBody] SlotViewModel slot, Guid id)
     {
         var slotModificar = contexto.Slots.FirstOrDefault(x => x.id == id);
+        if (slotModificar is null)
+            throw new Exception("no existe un slot de entrada con ese Id.");
 
         slotModificar.Actualizar(slot.TipoSlot, slot.TipoVehiculo);
 
@@ -47,6 +49,8 @@ public class SlotController : ControllerBase
     public ActionResult Delete(Guid id)
     {
         var slotBorrar = contexto.Slots.FirstOrDefault(x => x.id == id);
+        if (slotBorrar is null)
+            throw new Exception("no existe un slot de entrada con ese Id.");
 
         contexto.Slots.Remove(slotBorrar);
 

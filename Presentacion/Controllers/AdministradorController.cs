@@ -37,6 +37,10 @@ public class AdministradorController : ControllerBase
     public ActionResult Put([FromBody] AdministradorViewModel administrador, Guid id) 
     {
         var administradorModificar = contexto.Administradores.FirstOrDefault(x => x.id == id);
+        
+         if (administradorModificar is null)
+            throw new Exception("no existe un administrador de entrada con ese Id.");
+
         administradorModificar.Actualizar(administrador.nombre, administrador.contraseña);
         contexto.SaveChanges();
         return Ok(administradorModificar);
@@ -45,6 +49,10 @@ public class AdministradorController : ControllerBase
     public ActionResult Delete(Guid id)
     {
         var administradorBorrar = contexto.Administradores.FirstOrDefault(x => x.id == id);
+
+         if (administradorBorrar is null)
+            throw new Exception("no existe un administrados de entrada con ese Id.");
+
         contexto.Administradores.Remove(administradorBorrar);
         contexto.SaveChanges();
         return Ok();

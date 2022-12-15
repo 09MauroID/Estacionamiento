@@ -41,6 +41,8 @@ public class PortalAsistenteEstacionamientoController : ControllerBase
     public ActionResult Delete(Guid id)
     {
         var asistenteBorrar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
+        if (asistenteBorrar is null)
+            throw new Exception("no existe un asistente de entrada con ese Id.");
 
         contexto.Asistentes.Remove(asistenteBorrar);
 
