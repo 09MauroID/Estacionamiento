@@ -39,7 +39,7 @@ public class AsistenteController : ControllerBase
         var asistenteModificar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
         
         if (asistenteModificar is null)
-            throw new Exception("no existe un asistente de entrada con ese Id.");
+            throw new Exception("no existe un asistente  con ese Id.");
 
         asistenteModificar.Actualizar(asistente.nombre, asistente.contrasenia);
 
@@ -52,7 +52,7 @@ public class AsistenteController : ControllerBase
     {
         var asistenteBorrar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
         if (asistenteBorrar is null)
-            throw new Exception("no existe un asistente de entrada con ese Id.");
+            throw new Exception("no existe un asistente  con ese Id.");
 
         contexto.Asistentes.Remove(asistenteBorrar);
 

@@ -39,7 +39,7 @@ public class AdministradorController : ControllerBase
         var administradorModificar = contexto.Administradores.FirstOrDefault(x => x.id == id);
         
          if (administradorModificar is null)
-            throw new Exception("no existe un administrador de entrada con ese Id.");
+            throw new Exception("no existe un administrador  con ese Id.");
 
         administradorModificar.Actualizar(administrador.nombre, administrador.contraseña);
         contexto.SaveChanges();
@@ -51,7 +51,7 @@ public class AdministradorController : ControllerBase
         var administradorBorrar = contexto.Administradores.FirstOrDefault(x => x.id == id);
 
          if (administradorBorrar is null)
-            throw new Exception("no existe un administrados de entrada con ese Id.");
+            throw new Exception("no existe un administrados con ese Id.");
 
         contexto.Administradores.Remove(administradorBorrar);
         contexto.SaveChanges();

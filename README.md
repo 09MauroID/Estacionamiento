@@ -21,3 +21,6 @@ Copiar la primera dirreción en el navegador y agregar "/swagger".
 Esto nos va a redireccionar a la WebApi lista para ser testeado, por ultimo se procede a operar dentro del mismo.
 
 Seleccionar en el apartado POST, click en la opción "Try Out", colocar los datos correspondientes( o colocar los parametros correspondientes), darle a "Execute" y verificar que no haya errores tanto en "Curl", la direccion "URL" y el "Code". Ya una vez verificados entrar en el apartado "Get", click en "Try Out" luego a "Execute" y chequear si lo hecho anteriormente en "Post" aparece debajo de "Response body", analizar nuevamente el "URL" del mismo apartado (en el que nos encontramos) y revisar si se encuentran los datos. Clic en el apartado "PUT" darle a "Try Out", copiar y colocar el "Id" del objeto que nosotros creamos(aparece en el apartado "GET") para poder modificar los parametros alterables de ese objeto y clickear en "Execute". Y por ultimo en el apartado de "Delete" darle click a "Try Out" y pasarle por parametro el "Id" del objeto a eliminar, click en "Execute" y comprobar si fue eliminiado correctamente.
+
+Dar de alta el Administrador
+

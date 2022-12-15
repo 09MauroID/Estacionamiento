@@ -36,7 +36,7 @@ public class SlotController : ControllerBase
     {
         var slotModificar = contexto.Slots.FirstOrDefault(x => x.id == id);
         if (slotModificar is null)
-            throw new Exception("no existe un slot de entrada con ese Id.");
+            throw new Exception("no existe un slot  con ese Id.");
 
         slotModificar.Actualizar(slot.TipoSlot, slot.TipoVehiculo);
 
@@ -50,7 +50,7 @@ public class SlotController : ControllerBase
     {
         var slotBorrar = contexto.Slots.FirstOrDefault(x => x.id == id);
         if (slotBorrar is null)
-            throw new Exception("no existe un slot de entrada con ese Id.");
+            throw new Exception("no existe un slot  con ese Id.");
 
         contexto.Slots.Remove(slotBorrar);
 
