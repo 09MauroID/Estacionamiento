@@ -11,8 +11,8 @@ using Presentacion.Persistencia;
 namespace Presentacion.Persistencia.Migraciones
 {
     [DbContext(typeof(PresentacionDbContext))]
-    [Migration("20221213114258_UnCambioNuevo")]
-    partial class UnCambioNuevo
+    [Migration("20230207144716_uncambioNuevo70")]
+    partial class uncambioNuevo70
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,12 @@ namespace Presentacion.Persistencia.Migraciones
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("usuarioid")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("id");
+
+                    b.HasIndex("usuarioid");
 
                     b.ToTable("Administrador");
                 });
@@ -343,6 +348,15 @@ namespace Presentacion.Persistencia.Migraciones
                     b.HasKey("matricula");
 
                     b.ToTable("Vehiculo");
+                });
+
+            modelBuilder.Entity("Dominio.src.Administrador", b =>
+                {
+                    b.HasOne("Dominio.src.Usuario", "usuario")
+                        .WithMany()
+                        .HasForeignKey("usuarioid");
+
+                    b.Navigation("usuario");
                 });
 
             modelBuilder.Entity("Dominio.src.Asistente", b =>

@@ -35,7 +35,12 @@ namespace Presentacion.Presentacion.Migracion
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("usuarioid")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("id");
+
+                    b.HasIndex("usuarioid");
 
                     b.ToTable("Administrador");
                 });
@@ -341,6 +346,15 @@ namespace Presentacion.Presentacion.Migracion
                     b.HasKey("matricula");
 
                     b.ToTable("Vehiculo");
+                });
+
+            modelBuilder.Entity("Dominio.src.Administrador", b =>
+                {
+                    b.HasOne("Dominio.src.Usuario", "usuario")
+                        .WithMany()
+                        .HasForeignKey("usuarioid");
+
+                    b.Navigation("usuario");
                 });
 
             modelBuilder.Entity("Dominio.src.Asistente", b =>

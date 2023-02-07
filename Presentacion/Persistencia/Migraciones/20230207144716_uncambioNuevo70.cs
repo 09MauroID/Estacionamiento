@@ -4,7 +4,7 @@
 
 namespace Presentacion.Persistencia.Migraciones
 {
-    public partial class UnNuevoCambio1 : Migration
+    public partial class uncambioNuevo70 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

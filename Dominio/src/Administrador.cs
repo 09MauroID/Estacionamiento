@@ -18,6 +18,8 @@ public class Administrador
     public List<Planta> plantas { get; set; }
     public List<Slot> slots { get; set; }
     public List<Asistente> asistentes { get; set; }
+    public Usuario? usuario { get; set; }
+
 
     public Administrador(string nombre, string contraseña)
 
@@ -59,4 +61,5 @@ public class Administrador
 
     public void eliminarAsistente(Asistente asistente) => this.asistentes.Remove(asistente);
 
+    public void AsignarUsuario(Usuario usuario) => this.usuario = usuario;
 }
