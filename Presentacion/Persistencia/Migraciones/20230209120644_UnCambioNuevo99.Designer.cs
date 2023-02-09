@@ -11,8 +11,8 @@ using Presentacion.Persistencia;
 namespace Presentacion.Persistencia.Migraciones
 {
     [DbContext(typeof(PresentacionDbContext))]
-    [Migration("20230207144716_uncambioNuevo70")]
-    partial class uncambioNuevo70
+    [Migration("20230209120644_UnCambioNuevo99")]
+    partial class UnCambioNuevo99
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,20 +60,23 @@ namespace Presentacion.Persistencia.Migraciones
                         .HasColumnType("char(36)");
 
                     b.Property<string>("contrasenia")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("nombre")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid>("usuarioid")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("id");
 
                     b.HasIndex("Administradorid");
 
                     b.HasIndex("PortalAsistenteEstacionamientoid");
+
+                    b.HasIndex("usuarioid");
 
                     b.ToTable("Asistente");
                 });
@@ -368,6 +371,14 @@ namespace Presentacion.Persistencia.Migraciones
                     b.HasOne("Dominio.src.PortalAsistenteEstacionamiento", null)
                         .WithMany("Asistentes")
                         .HasForeignKey("PortalAsistenteEstacionamientoid");
+
+                    b.HasOne("Dominio.src.Usuario", "usuario")
+                        .WithMany()
+                        .HasForeignKey("usuarioid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("usuario");
                 });
 
             modelBuilder.Entity("Dominio.src.Cliente", b =>

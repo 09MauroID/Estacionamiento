@@ -37,7 +37,7 @@ public class AsistenteController : ControllerBase
     public ActionResult Put([FromBody] AsistenteViewModel asistente, Guid id)
     {
         var asistenteModificar = contexto.Asistentes.FirstOrDefault(x => x.id == id);
-        
+
         if (asistenteModificar is null)
             throw new Exception("no existe un asistente  con ese Id.");
 
@@ -59,5 +59,15 @@ public class AsistenteController : ControllerBase
         contexto.SaveChanges();
 
         return Ok();
+    }
+    [HttpPost("/api/Asistente{idAsistente:Guid}/Usuario/{idUsuario:Guid}")]
+    public ActionResult AsignarUsuario(Guid idAsistente, Guid idUsuario)
+    {
+        var nuevoAsistente = contexto.Asistentes.FirstOrDefault(a => a.id == idAsistente);
+        var unusuario = contexto.Usuarios.FirstOrDefault(a => a.id == idUsuario);
+
+        nuevoAsistente.AsignarUsuario(unusuario);
+        contexto.SaveChanges();
+        return Ok("Se asigno usuario");
     }
 }

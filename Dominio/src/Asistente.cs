@@ -12,6 +12,7 @@ public class Asistente
     public string? nombre { get; set; }
     [StringLength(50)]
     [Required]
+    public Usuario? usuario { get; set; }
     public string? contrasenia { get; set; }
 
     public Asistente(string nombre, string contrasenia)
@@ -24,4 +25,5 @@ public class Asistente
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
+    public void AsignarUsuario(Usuario usuario) => this.usuario = usuario;
 }
