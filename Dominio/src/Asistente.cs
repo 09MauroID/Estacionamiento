@@ -12,8 +12,8 @@ public class Asistente
     public string? nombre { get; set; }
     [StringLength(50)]
     [Required]
-    public Usuario? usuario { get; set; }
     public string? contrasenia { get; set; }
+    public Usuario? usuario { get; set; }
 
     public Asistente(string nombre, string contrasenia)
     {

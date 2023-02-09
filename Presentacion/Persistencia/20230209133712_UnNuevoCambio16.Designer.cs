@@ -8,11 +8,11 @@ using Presentacion.Persistencia;
 
 #nullable disable
 
-namespace Presentacion.Presentacion.Migracion
+namespace Presentacion.Persistencia
 {
     [DbContext(typeof(PresentacionDbContext))]
-    [Migration("20221129121431_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20230209133712_UnNuevoCambio16")]
+    partial class UnNuevoCambio16
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,9 +27,6 @@ namespace Presentacion.Presentacion.Migracion
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("Sistemaid")
-                        .HasColumnType("char(36)");
-
                     b.Property<string>("contraseña")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -40,9 +37,12 @@ namespace Presentacion.Presentacion.Migracion
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("usuarioid")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("id");
 
-                    b.HasIndex("Sistemaid");
+                    b.HasIndex("usuarioid");
 
                     b.ToTable("Administrador");
                 });
@@ -69,11 +69,16 @@ namespace Presentacion.Presentacion.Migracion
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("usuarioid")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("id");
 
                     b.HasIndex("Administradorid");
 
                     b.HasIndex("PortalAsistenteEstacionamientoid");
+
+                    b.HasIndex("usuarioid");
 
                     b.ToTable("Asistente");
                 });
@@ -156,17 +161,12 @@ namespace Presentacion.Presentacion.Migracion
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("ticketEntradaid")
-                        .HasColumnType("char(36)");
-
                     b.Property<string>("ubicacion")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("ticketEntradaid");
 
                     b.ToTable("Panelentrada");
                 });
@@ -231,12 +231,7 @@ namespace Presentacion.Presentacion.Migracion
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("sistemaid")
-                        .HasColumnType("char(36)");
-
                     b.HasKey("id");
-
-                    b.HasIndex("sistemaid");
 
                     b.ToTable("PortalAsistenteEstacionamiento");
                 });
@@ -267,32 +262,6 @@ namespace Presentacion.Presentacion.Migracion
                     b.ToTable("PortalInformacionCliente");
                 });
 
-            modelBuilder.Entity("Dominio.src.Sistema", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("EstacionamientoId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("PanelElectricoid")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("PortalInformacionClienteid")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("EstacionamientoId");
-
-                    b.HasIndex("PanelElectricoid");
-
-                    b.HasIndex("PortalInformacionClienteid");
-
-                    b.ToTable("Sistema");
-                });
-
             modelBuilder.Entity("Dominio.src.Slot", b =>
                 {
                     b.Property<Guid>("id")
@@ -305,7 +274,7 @@ namespace Presentacion.Presentacion.Migracion
                     b.Property<int?>("PlantanroPiso")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoSlot")
+                    b.Property<int>("tipoSlot")
                         .HasColumnType("int");
 
                     b.Property<int>("tipoVehiculo")
@@ -329,7 +298,7 @@ namespace Presentacion.Presentacion.Migracion
                     b.Property<int>("Monto")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("Sistemaid")
+                    b.Property<Guid?>("PanelEntradaid")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("horarioIngreso")
@@ -347,7 +316,7 @@ namespace Presentacion.Presentacion.Migracion
 
                     b.HasKey("id");
 
-                    b.HasIndex("Sistemaid");
+                    b.HasIndex("PanelEntradaid");
 
                     b.ToTable("TicketEntrada");
                 });
@@ -356,9 +325,6 @@ namespace Presentacion.Presentacion.Migracion
                 {
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid?>("Sistemaid")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("contraseña")
@@ -372,8 +338,6 @@ namespace Presentacion.Presentacion.Migracion
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("Sistemaid");
 
                     b.ToTable("Usuario");
                 });
@@ -393,9 +357,11 @@ namespace Presentacion.Presentacion.Migracion
 
             modelBuilder.Entity("Dominio.src.Administrador", b =>
                 {
-                    b.HasOne("Dominio.src.Sistema", null)
-                        .WithMany("Administradores")
-                        .HasForeignKey("Sistemaid");
+                    b.HasOne("Dominio.src.Usuario", "usuario")
+                        .WithMany()
+                        .HasForeignKey("usuarioid");
+
+                    b.Navigation("usuario");
                 });
 
             modelBuilder.Entity("Dominio.src.Asistente", b =>
@@ -407,6 +373,12 @@ namespace Presentacion.Presentacion.Migracion
                     b.HasOne("Dominio.src.PortalAsistenteEstacionamiento", null)
                         .WithMany("Asistentes")
                         .HasForeignKey("PortalAsistenteEstacionamientoid");
+
+                    b.HasOne("Dominio.src.Usuario", "usuario")
+                        .WithMany()
+                        .HasForeignKey("usuarioid");
+
+                    b.Navigation("usuario");
                 });
 
             modelBuilder.Entity("Dominio.src.Cliente", b =>
@@ -431,17 +403,6 @@ namespace Presentacion.Presentacion.Migracion
                     b.Navigation("planta");
                 });
 
-            modelBuilder.Entity("Dominio.src.PanelEntrada", b =>
-                {
-                    b.HasOne("Dominio.src.TicketEntrada", "ticketEntrada")
-                        .WithMany()
-                        .HasForeignKey("ticketEntradaid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ticketEntrada");
-                });
-
             modelBuilder.Entity("Dominio.src.PanelSalida", b =>
                 {
                     b.HasOne("Dominio.src.TicketEntrada", "TicketSalida")
@@ -460,17 +421,6 @@ namespace Presentacion.Presentacion.Migracion
                         .HasForeignKey("Administradorid");
                 });
 
-            modelBuilder.Entity("Dominio.src.PortalAsistenteEstacionamiento", b =>
-                {
-                    b.HasOne("Dominio.src.Sistema", "sistema")
-                        .WithMany()
-                        .HasForeignKey("sistemaid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("sistema");
-                });
-
             modelBuilder.Entity("Dominio.src.PortalInformacionCliente", b =>
                 {
                     b.HasOne("Dominio.src.TicketEntrada", "ticketEntrada")
@@ -480,33 +430,6 @@ namespace Presentacion.Presentacion.Migracion
                         .IsRequired();
 
                     b.Navigation("ticketEntrada");
-                });
-
-            modelBuilder.Entity("Dominio.src.Sistema", b =>
-                {
-                    b.HasOne("Dominio.src.Estacionamiento", "Estacionamiento")
-                        .WithMany()
-                        .HasForeignKey("EstacionamientoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Dominio.src.PanelElectrico", "PanelElectrico")
-                        .WithMany()
-                        .HasForeignKey("PanelElectricoid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Dominio.src.PortalInformacionCliente", "PortalInformacionCliente")
-                        .WithMany()
-                        .HasForeignKey("PortalInformacionClienteid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Estacionamiento");
-
-                    b.Navigation("PanelElectrico");
-
-                    b.Navigation("PortalInformacionCliente");
                 });
 
             modelBuilder.Entity("Dominio.src.Slot", b =>
@@ -522,16 +445,9 @@ namespace Presentacion.Presentacion.Migracion
 
             modelBuilder.Entity("Dominio.src.TicketEntrada", b =>
                 {
-                    b.HasOne("Dominio.src.Sistema", null)
-                        .WithMany("Tickets")
-                        .HasForeignKey("Sistemaid");
-                });
-
-            modelBuilder.Entity("Dominio.src.Usuario", b =>
-                {
-                    b.HasOne("Dominio.src.Sistema", null)
-                        .WithMany("Usuarios")
-                        .HasForeignKey("Sistemaid");
+                    b.HasOne("Dominio.src.PanelEntrada", null)
+                        .WithMany("ticketEntradas")
+                        .HasForeignKey("PanelEntradaid");
                 });
 
             modelBuilder.Entity("Dominio.src.Administrador", b =>
@@ -543,6 +459,11 @@ namespace Presentacion.Presentacion.Migracion
                     b.Navigation("slots");
                 });
 
+            modelBuilder.Entity("Dominio.src.PanelEntrada", b =>
+                {
+                    b.Navigation("ticketEntradas");
+                });
+
             modelBuilder.Entity("Dominio.src.Planta", b =>
                 {
                     b.Navigation("slots");
@@ -551,15 +472,6 @@ namespace Presentacion.Presentacion.Migracion
             modelBuilder.Entity("Dominio.src.PortalAsistenteEstacionamiento", b =>
                 {
                     b.Navigation("Asistentes");
-                });
-
-            modelBuilder.Entity("Dominio.src.Sistema", b =>
-                {
-                    b.Navigation("Administradores");
-
-                    b.Navigation("Tickets");
-
-                    b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

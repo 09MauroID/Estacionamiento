@@ -7,7 +7,7 @@ using Presentacion.Persistencia;
 
 #nullable disable
 
-namespace Presentacion.Presentacion.Migracion
+namespace Presentacion.Persistencia
 {
     [DbContext(typeof(PresentacionDbContext))]
     partial class PresentacionDbContextModelSnapshot : ModelSnapshot
@@ -58,14 +58,16 @@ namespace Presentacion.Presentacion.Migracion
                         .HasColumnType("char(36)");
 
                     b.Property<string>("contrasenia")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("nombre")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<Guid>("usuarioid")
+                    b.Property<Guid?>("usuarioid")
                         .HasColumnType("char(36)");
 
                     b.HasKey("id");
@@ -372,9 +374,7 @@ namespace Presentacion.Presentacion.Migracion
 
                     b.HasOne("Dominio.src.Usuario", "usuario")
                         .WithMany()
-                        .HasForeignKey("usuarioid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("usuarioid");
 
                     b.Navigation("usuario");
                 });
